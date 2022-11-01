@@ -18,7 +18,7 @@ class NumpyArray:
                         if file_ext.upper() == ".JPG":
                             cvImage = cv2.imread(slice,cv2.IMREAD_UNCHANGED)
                             slices_array.append(cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY))
-        return slices_array
+        return slices_array 
 
     def slices_to_numpy_array(self,main_output_folder):
         slices_array = self.get_array_of_slices()
