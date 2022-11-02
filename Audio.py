@@ -56,6 +56,8 @@ class Audio:
         self.fileDict.update({"tonic":self.tonic})
         self.fileDict.update({"key_signature":self.key_signature})
         self.fileDict.update({"z_dist_avg_to_tonic":self.z_dist_avg_to_tonic})
+
+        return self.fileDict
         
     def save_detail_to_JSON(self,save_path):
         json_object = json.dumps(self.fileDict, indent=4)
