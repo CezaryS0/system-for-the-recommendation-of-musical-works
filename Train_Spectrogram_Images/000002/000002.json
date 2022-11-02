@@ -1,4 +1,5 @@
 {
+    "id": 0,
     "title": "Food",
     "samplefreq": 22050,
     "sample_points": 660984,
@@ -7,5 +8,6 @@
     "tuning": 0.06000000000000005,
     "duration": 29.976598639455784,
     "tonic": "C",
-    "key_signature": "C Minor"
+    "key_signature": "C Minor",
+    "z_dist_avg_to_tonic": 2.683300018310547
 }

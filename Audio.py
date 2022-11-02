@@ -29,7 +29,7 @@ class Audio:
         self.sr=None
 
     def load_file(self,path,csv,index):
-        #try:
+        try:
             self.y,self.sr = librosa.load(path,mono=True)
             self.track_title = csv.get_title(index)
             self.tempo, self.beat_frames = librosa.beat.beat_track(y=self.y,sr=self.sr)
@@ -40,23 +40,22 @@ class Audio:
             self.mel = self.generate_spectrogram()
             self.tonic, self.key_signature,self.z_dist_avg_to_tonic = self.findTonicAndKey()
             
-        #except:
-            #return
+        except:
+            return
     
-    def get_file_details(self) ->None:
+    def get_file_details(self,index) ->None:
         
+        self.fileDict.update({"id":index})
         self.fileDict.update({"title":self.track_title}) #title_of_a_track
         self.fileDict.update({"samplefreq":self.sr})
         self.fileDict.update({"sample_points":self.y.shape[0]})
         self.fileDict.update({"tempo_bpm":self.tempo}) #tempo of a song in bmps
-        #self.fileDict.update({"beat_frames":self.beat_frames}) #times when a beat is hit
-        #self.fileDict.update({"beat_times":self.beat_times})
         self.fileDict.update({"rolloff_freq":self.rolloff_freq}) #Get the rolloff frequency - the frequency at which the loudness drops off by 90%, like a low pass filter
         self.fileDict.update({"tuning":self.tuning}) #tuning
         self.fileDict.update({"duration":self.duration}) #length of a track in seconds
         self.fileDict.update({"tonic":self.tonic})
         self.fileDict.update({"key_signature":self.key_signature})
-        #self.fileDict.update({"z_dist_avg_to_tonic":self.z_dist_avg_to_tonic})
+        self.fileDict.update({"z_dist_avg_to_tonic":self.z_dist_avg_to_tonic})
         
     def save_detail_to_JSON(self,save_path):
         json_object = json.dumps(self.fileDict, indent=4)
@@ -97,13 +96,12 @@ class Audio:
         tonicval = np.where(max(chromasums)==chromasums)[0][0]
         notes = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B']
         tonic = notes[tonicval]
-        #In standard units, how far is the average pitch from the tonic?
+      
         z_dist_avg_to_tonic = round((max(chromasums)-np.mean(chromasums))/np.std(chromasums), 4)
-        #Correlate the chromasums array with each of the major scales, find the best match
+        
         bestmatch = 0
         bestmatchid = 0
         for key, scale in majorscales.items():
-            #np.corrcoef returns a matrix, only need the first value in the diagonal
             corr = np.corrcoef(scale, chromasums)[0,1]
             if (corr > bestmatch):
                 bestmatch = corr
@@ -112,4 +110,4 @@ class Audio:
             keysig = tonic + ' Minor'
         else:
             keysig = tonic + ' Major'        
-        return tonic, keysig, z_dist_avg_to_tonic
+        return tonic, keysig, float(z_dist_avg_to_tonic)

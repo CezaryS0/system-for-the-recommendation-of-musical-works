@@ -32,7 +32,7 @@ class DataManager:
                     audio.load_file(full_path,csv,index)
                     audio.save_spectrogram(savepath)
                     audio.slice_spectrogram(savepath,filename,os.path.join(filename_folder_path,'slices'))
-                    audio.get_file_details()
+                    audio.get_file_details(counter)
                     audio.save_detail_to_JSON(filename_folder_path+'/'+filename+'.json')
                     counter+=1
                     if counter==1:
