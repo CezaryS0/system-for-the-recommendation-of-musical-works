@@ -16,8 +16,6 @@ class JSONManager:
 
     def read_JSON(self,path):
         data = json.load(self.file)
-        for i in data:
-            print(i)
         return data
 
     def closeFile(self):

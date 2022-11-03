@@ -1,13 +1,17 @@
 import os 
 import cv2
 import numpy as np
+from soupsieve import select
 from TrainingData import TrainingData
 from JSONManager import JSONManager
+from DirectoryManager import DirectoryManager
+
 
 class NumpyArray:
 
     def __init__(self) -> None:
-        pass
+        self.data = TrainingData()
+        self.dm = DirectoryManager()
     
     def get_array_of_slices(self,main_output_folder):
         slices_array = []
@@ -24,33 +28,51 @@ class NumpyArray:
 
 
     def assingValuesToLists(self,json_file_data,matrix):
-        data = TrainingData()
-        data.spectrograms.append(matrix)
-        data.ids.append(json_file_data['id'])
-        data.titles.append(json_file_data['title'])
-        data.samplefreq.append(json_file_data['samplefreq'])
-        data.sample_points.append(json_file_data['sample_points'])
-        data.tempo_bpm.append(json_file_data['tempo_bmp'])
-        data.rolloff_freq.append(json_file_data['tuning'])
-        data.duration.append(json_file_data['duration'])
-        data.tonic.append(json_file_data['tonic'])
-        data.key_sigantures.append(json_file_data['key_signature'])
-        data.z_dist_avg_to_tonic.append(json_file_data['z_dist_avg_to_tonic'])
-
-    def read_spectrograms_to_array(self,main_output_folder):
         
+        for name in json_file_data:
+            if name not in self.data.dataDict:
+                self.data.dataDict[name]=list()
+                self.data.fields.append(name)
+            self.data.dataDict[name].append(json_file_data[name])
+        self.data.spectrograms.append(matrix)
+        #self.data.ids.append(json_file_data['id'])
+        #self.data.titles.append(json_file_data['title'])
+        #self.data.samplefreq.append(json_file_data['samplefreq'])
+        #self.data.sample_points.append(json_file_data['sample_points'])
+        #self.data.tempo_bpm.append(json_file_data['tempo_bmp'])
+        #self.data.rolloff_freq.append(json_file_data['tuning'])
+        #self.data.duration.append(json_file_data['duration'])
+        #self.data.tonic.append(json_file_data['tonic'])
+        #self.data.key_sigantures.append(json_file_data['key_signature'])
+        #self.data.z_dist_avg_to_tonic.append(json_file_data['z_dist_avg_to_tonic'])
+
+    def read_data_to_array(self,main_output_folder):
+        self.data.clear()
         json = JSONManager()
         for folder in os.scandir(main_output_folder):
             if folder.is_dir:
                 dirPath = os.path.join(main_output_folder,folder.name)
                 cvImage = cv2.imread(os.path.join(dirPath,folder.name+".jpg"))
                 matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
-                json.file_open(os.path.join(dirPath,folder.name+".json"))
-                json_file_data = json.read_JSON()
+                jsonPath = os.path.join(dirPath,folder.name+".json")
+                json.file_open(jsonPath)
+                json_file_data = json.read_JSON(jsonPath)
                 self.assingValuesToLists(json_file_data,matrix)
-                
+                json.closeFile()
+
+        return self.data
 
     def slices_to_numpy_array(self,main_output_folder):
         slices_array = self.get_array_of_slices()
         numpy_slices = np.array(slices_array)
         return numpy_slices
+
+    def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
+        self.dm.create_main_dir(main_output_folder)
+        self.read_data_to_array(dataset_folder)
+        save_path = os.path.join(main_output_folder,"spectrograms.npy")
+        np.save(save_path,np.array(self.data.spectrograms))
+
+        for key in self.data.dataDict:
+            save_path = os.path.join(main_output_folder,key+'.npy')
+            np.save(save_path,np.array(self.data.dataDict[key]))

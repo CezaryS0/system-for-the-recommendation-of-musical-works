@@ -59,11 +59,6 @@ class Audio:
 
         return self.fileDict
         
-    def save_detail_to_JSON(self,save_path):
-        json_object = json.dumps(self.fileDict, indent=4)
-        with open(save_path, "w") as outfile:
-            outfile.write(json_object)
-
     def generate_spectrogram(self):
         melspectrogram_array = librosa.feature.melspectrogram(y=self.y, sr=self.sr, n_mels=128,fmax=8000)
         mel = librosa.power_to_db(melspectrogram_array)
