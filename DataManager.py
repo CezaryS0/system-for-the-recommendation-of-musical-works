@@ -13,12 +13,13 @@ class DataManager:
         self.ut = Utils()
         self.audio = Audio()
         self.json = JSONManager()
+        self.numpy = NumpyArray()
 
     def save_details_to_Json(self,counter,jsonPath):
         fileDict = self.audio.get_file_details(counter)
         
-        self.json.file_open(jsonPath)
-        self.json.save_dict_to_JSON(fileDict,jsonPath)
+        self.json.file_open(jsonPath,'w')
+        self.json.save_dict_to_JSON(fileDict)
         self.json.closeFile()
 
     def loadMP3Files(self,root,f,index,filename_folder_path):
@@ -53,5 +54,6 @@ class DataManager:
                     jsonPath = os.path.join(filename_folder_path ,filename+'.json')
                     self.save_details_to_Json(counter,jsonPath)
                     counter+=1
-                    if counter==1:
-                        return
+                    #if counter==1:
+                       #return
+        

@@ -55,8 +55,8 @@ class NumpyArray:
                 cvImage = cv2.imread(os.path.join(dirPath,folder.name+".jpg"))
                 matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
                 jsonPath = os.path.join(dirPath,folder.name+".json")
-                json.file_open(jsonPath)
-                json_file_data = json.read_JSON(jsonPath)
+                json.file_open(jsonPath,'r')
+                json_file_data = json.read_JSON()
                 self.assingValuesToLists(json_file_data,matrix)
                 json.closeFile()
 
@@ -67,12 +67,20 @@ class NumpyArray:
         numpy_slices = np.array(slices_array)
         return numpy_slices
 
+
+    def reshape_images(self):
+        reshaped_list = list()
+        for elem in self.data.spectrograms:
+            x,y = np.shape(elem)
+            reshaped_list.append(np.reshape(elem,x*y))
+        return reshaped_list
+
     def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
         self.dm.create_main_dir(main_output_folder)
         self.read_data_to_array(dataset_folder)
         save_path = os.path.join(main_output_folder,"spectrograms.npy")
-        np.save(save_path,np.array(self.data.spectrograms))
-
+        spectrogram_array = self.reshape_images()
+        np.save(save_path,spectrogram_array)
         for key in self.data.dataDict:
             save_path = os.path.join(main_output_folder,key+'.npy')
-            np.save(save_path,np.array(self.data.dataDict[key]))
+            np.save(save_path,np.asarray(self.data.dataDict[key]))
