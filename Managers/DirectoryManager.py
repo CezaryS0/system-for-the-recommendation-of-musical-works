@@ -15,6 +15,13 @@ class DirectoryManager:
         os.makedirs(os.path.join(path_buf_array,'slices'))
         return path_buf_array
 
+    def get_all_files_in_dir(self,dir_path) -> list:
+        file_list = []
+        for file in os.listdir(dir_path):
+            if os.path.isfile(os.path.join(dir_path,file)):
+                file_list.append(file)
+        return file_list
+
     def create_dirs(self,root,dataset_path,main_output_folder) -> str:     
         current_path = root.lstrip(dataset_path+'\\')
         output_path = ""

@@ -2,9 +2,9 @@ import os
 from DirectoryManager import DirectoryManager
 from CSVManager import CSVManager
 from Utils import Utils
-from Audio import Audio
+from Audio.Audio import Audio
 from JSONManager import JSONManager
-from NumpyArray import NumpyArray
+from Numpy.NumpyArray import NumpyArray
 
 class DataManager:
 

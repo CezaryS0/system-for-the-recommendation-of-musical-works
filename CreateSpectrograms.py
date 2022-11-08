@@ -1,5 +1,5 @@
-from DataManager import DataManager
-from NumpyArray import NumpyArray
+from Managers.DataManager import DataManager
+from Numpy.NumpyArray import NumpyArray
 
 dataset = 'dataset/fma_small'
 csv_data = 'dataset/fma_metadata/tracks.csv'
