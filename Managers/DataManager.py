@@ -1,10 +1,11 @@
 import os
-from DirectoryManager import DirectoryManager
-from CSVManager import CSVManager
+from Managers.DirectoryManager import DirectoryManager
+from Managers.CSVManager import CSVManager
 from Utils import Utils
 from Audio.Audio import Audio
-from JSONManager import JSONManager
+from Managers.JSONManager import JSONManager
 from Numpy.NumpyArray import NumpyArray
+from pydub import AudioSegment
 
 class DataManager:
 
@@ -17,17 +18,14 @@ class DataManager:
 
     def save_details_to_Json(self,counter,jsonPath):
         fileDict = self.audio.get_file_details(counter)
-        
         self.json.file_open(jsonPath,'w')
         self.json.save_dict_to_JSON(fileDict)
         self.json.closeFile()
 
-    def loadMP3Files(self,root,f,index,filename_folder_path):
+
+    def createSpectrograms(self,f,filename_folder_path):
         filename, _ = os.path.splitext(f)
-        
-        full_path = os.path.join(root,f)
-        savepath = os.path.join(filename_folder_path,filename+".jpg")
-        self.audio.load_file(full_path,self.csv,index)
+        savepath = os.path.join(filename_folder_path,filename+".png")
         self.audio.save_spectrogram(savepath)
         self.audio.slice_spectrogram(savepath,filename,os.path.join(filename_folder_path,'slices'))
 
@@ -47,13 +45,15 @@ class DataManager:
             for f in files:
                 filename, file_ext = os.path.splitext(f)
                 current_track_id = self.ut.StringToInt(filename)
-                if file_ext.upper() == ".MP3":
+                if file_ext.upper() == ".WAV":
                     index = tracks_id_list.index(current_track_id)
-                    filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)
-                    self.loadMP3Files(root,f,index,filename_folder_path)
-                    jsonPath = os.path.join(filename_folder_path ,filename+'.json')
-                    self.save_details_to_Json(counter,jsonPath)
-                    counter+=1
+                    if self.audio.load_file(os.path.join(root,f),self.csv,index) == True:
+                        filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)
+                        self.createSpectrograms(f,filename_folder_path)
+                        jsonPath = os.path.join(filename_folder_path ,filename+'.json')
+                        self.save_details_to_Json(counter,jsonPath)
+                        counter+=1
+                        print(f)
                     #if counter==1:
                        #return
         

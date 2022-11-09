@@ -39,9 +39,10 @@ class Audio:
             self.rolloff_freq = round(np.mean(librosa.feature.spectral_rolloff(y=self.y,sr=self.sr,hop_length=512,roll_percent=0.9)),0)
             self.mel = self.generate_spectrogram()
             self.tonic, self.key_signature,self.z_dist_avg_to_tonic = self.findTonicAndKey()
-            
+            return True
         except:
-            return
+            pass
+        return False
     
     def get_file_details(self,index) ->None:
         
@@ -83,7 +84,7 @@ class Audio:
         for i in range(number_of_samples):
             start = i*subsample_size
             img_temporary = img.crop((start,0.,start+subsample_size,subsample_size))
-            img_temporary.save(save_path+'/'+filename+"_"+str(i)+".jpg")
+            img_temporary.save(save_path+'/'+filename+"_"+str(i)+".png")
 
     def findTonicAndKey(self):
         chromagram = librosa.feature.chroma_stft(y=self.y,sr=self.sr)
