@@ -1,7 +1,6 @@
 import os 
 import cv2
 import numpy as np
-from soupsieve import select
 from Numpy.TrainingData import TrainingData
 from Managers.JSONManager import JSONManager
 from Managers.DirectoryManager import DirectoryManager
@@ -27,7 +26,7 @@ class NumpyArray:
         for folder in os.scandir(main_output_folder):
             if folder.is_dir:
                 dirPath = os.path.join(main_output_folder,folder.name)
-                cvImage = cv2.imread(os.path.join(dirPath,folder.name+".jpg"))
+                cvImage = cv2.imread(os.path.join(dirPath,folder.name+".png"))
                 matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
                 jsonPath = os.path.join(dirPath,folder.name+".json")
                 json.file_open(jsonPath,'r')
