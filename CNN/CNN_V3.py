@@ -5,6 +5,7 @@ import numpy as np
 from keras import Sequential
 from keras.models import Model
 from keras.layers import Input
+from keras.callbacks import ModelCheckpoint
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, BatchNormalization, Dropout
 from keras.utils import np_utils
 from Managers.DirectoryManager import DirectoryManager
@@ -65,11 +66,13 @@ class Encoder:
         self.dm.create_main_dir("Saved_Model")
         spectrograms_array = self.numpy.read_sliced_spectrograms_file(dataset_path)
         labels = self.numpy.read_numpy_file(dataset_path,feature_file)
+        print(np.shape(labels))
         labels = np.reshape(labels,(np.shape(labels)[0],1))
         train_x, test_x, train_y, test_y = self.prepare_data_for_training(spectrograms_array,labels)
         shape_train_x = np.shape(train_x)
         input_shape = (shape_train_x[1],shape_train_x[2],1)
         self.encoder = self.encode(input_shape,np.shape(train_y)[1])
-        self.encoder.compile(loss="mse", optimizer="Adam", metrics=['accuracy'])
+        self.encoder.compile(loss='mean_squared_error', optimizer="Adam", metrics=['accuracy'])
+        checkpoint = ModelCheckpoint('weight.h5', monitor='val_loss',save_best_only=True)
         pd.DataFrame(self.encoder.fit(train_x, train_y, epochs=10, validation_split=0.1).history).to_csv("Saved_Model/training_history.csv")
         self.encoder.evaluate(test_x,test_y)
