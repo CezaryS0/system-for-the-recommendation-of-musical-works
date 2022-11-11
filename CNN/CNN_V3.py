@@ -27,7 +27,7 @@ class Encoder:
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
         test_x = np.reshape(test_x,(shape_test_x[0],shape_test_x[1],shape_test_x[2],1))
         train_x = train_x /255
-        test_x = train_x /255
+        test_x = test_x /255
         test_y = np_utils.to_categorical(test_y, num_classes=labels_shape[1])
         return train_x, test_x, train_y, test_y
 
@@ -75,4 +75,6 @@ class Encoder:
         self.encoder.compile(loss='mean_squared_error', optimizer="Adam", metrics=['accuracy'])
         checkpoint = ModelCheckpoint('Saved_Model/weight.h5', monitor='val_loss',save_best_only=True)
         pd.DataFrame(self.encoder.fit(train_x, train_y, epochs=10, validation_split=0.1,callbacks=[checkpoint]).history).to_csv("Saved_Model/training_history.csv")
+        self.encoder.save('Saved_Model/Model.h5')
         self.encoder.evaluate(test_x,test_y)
+        
