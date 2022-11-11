@@ -24,9 +24,9 @@ class Encoder:
         shape_test_x = np.shape(test_x)
         labels_shape = np.shape(train_y)
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
-        test_x = np.reshape(test_x,(shape_test_x[0],shape_test_x[1],shape_test_x[2],1))
         train_x = train_x /255
         test_x = train_x /255
+        test_x = np.reshape(test_x,(shape_test_x[0],shape_test_x[1],shape_test_x[2],1))
         test_y = np_utils.to_categorical(test_y, num_classes=labels_shape[1])
         return train_x, test_x, train_y, test_y
 
