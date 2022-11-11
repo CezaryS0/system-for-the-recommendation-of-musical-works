@@ -73,6 +73,6 @@ class Encoder:
         input_shape = (shape_train_x[1],shape_train_x[2],1)
         self.encoder = self.encode(input_shape,np.shape(train_y)[1])
         self.encoder.compile(loss='mean_squared_error', optimizer="Adam", metrics=['accuracy'])
-        checkpoint = ModelCheckpoint('weight.h5', monitor='val_loss',save_best_only=True)
-        pd.DataFrame(self.encoder.fit(train_x, train_y, epochs=10, validation_split=0.1).history).to_csv("Saved_Model/training_history.csv")
+        checkpoint = ModelCheckpoint('Saved_Model/weight.h5', monitor='val_loss',save_best_only=True)
+        pd.DataFrame(self.encoder.fit(train_x, train_y, epochs=10, validation_split=0.1,callbacks=[checkpoint]).history).to_csv("Saved_Model/training_history.csv")
         self.encoder.evaluate(test_x,test_y)
