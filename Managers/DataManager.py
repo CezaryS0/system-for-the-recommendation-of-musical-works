@@ -22,6 +22,11 @@ class DataManager:
         self.json.save_dict_to_JSON(fileDict)
         self.json.closeFile()
 
+    def get_track_name_from_json(self,jsonPath):
+        self.json.file_open(jsonPath,'w')
+        data = self.json.read_JSON()
+        self.json.closeFile()
+        return data['title']
 
     def createSpectrograms(self,f,filename_folder_path):
         filename, _ = os.path.splitext(f)
@@ -56,4 +61,30 @@ class DataManager:
                         print(f)
                     #if counter==1:
                        #return
-        
+    
+    def get_spectrograms_and_titles(self,dataset_path):
+        for folder in os.listdir(dataset_path):
+            if not os.path.isfile(folder):
+                jsonPath = os.path.join(dataset_path,folder)
+                dirPath = os.path.join(dataset_path,folder,'slices')
+                slice_array = []
+                title_array = []
+                for slice in os.listdir(dirPath):
+                    title = self.get_track_name_from_json(os.path.join(jsonPath,folder+'.json'))
+                    slice_path = os.path.join(dirPath,slice)
+                    slice_array.append(self.numpy.read_image_to_numpy(slice_path))
+                    title_array.append(title)
+                return slice_array,title_array
+        return None
+
+    def get_spectrogram_from_name(self,dataset_path,name):
+        for folder in os.listdir(dataset_path):
+            if not os.path.isfile(folder) and folder.upper() == name.upper():
+                dirPath = os.path.join(dataset_path,folder,'slices')
+                slice_array = []
+                for slice in os.listdir(dirPath):
+                    slice_path = os.path.join(dirPath,slice)
+                    slice_array.append(self.numpy.read_image_to_numpy(slice_path))
+                return slice_array
+        return None
+    

@@ -36,6 +36,11 @@ class NumpyArray:
 
         return data
 
+    def read_image_to_numpy(self,path):
+        cvImage = cv2.imread(path)
+        matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
+        return matrix
+
     def read_sliced_spectrograms(self,main_output_folder):
         data = TrainingData()
         json = JSONManager()
