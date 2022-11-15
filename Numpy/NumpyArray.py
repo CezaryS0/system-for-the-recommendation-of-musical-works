@@ -157,7 +157,7 @@ class NumpyArray:
 
     def read_sliced_spectrograms_file(self,train_data_path):
         save_path = os.path.join(train_data_path,'slices','spectrograms_sliced.npy')
-        return np.load(save_path)
+        return np.load(save_path,allow_pickle=True)
 
     def read_numpy_file(self,train_data_path,name):
         path = os.path.join(train_data_path,name)
