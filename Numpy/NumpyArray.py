@@ -66,37 +66,82 @@ class NumpyArray:
             reshaped_list.append(np.reshape(elem,x*y))
         return reshaped_list,size_list
 
+    def save_array_to_numpy_file(self,arr,path):
+        if type(arr[0]) is float:
+            np.save(path,np.array(arr,dtype=np.float32))
+        else:
+            np.save(path,np.array(arr,dtype=object))
 
-    def save_full_spectrograms(self,main_output_folder,data_full,):
-        save_path_spectrograms = os.path.join(main_output_folder,"spectrograms.npy")
-        save_path_dims = os.path.join(main_output_folder,"spectrograms_dims.npy")
+    def save_detail_to_numpy_files(self,data,path_train,path_test,train_size,test_size):
+        buf_array = []
+        for key in data.dataDict:
+            save_path_train = os.path.join(path_train,key+'.npy')
+            save_path_test = os.path.join(path_test,key+'.npy')
+            buf_array.clear()
+            for i in range(train_size):
+                buf_array.append(data.dataDict[key][i])
+            self.save_array_to_numpy_file(buf_array,save_path_train)
+            buf_array.clear()
+            for i in range(train_size,train_size+test_size):
+                buf_array.append(data.dataDict[key][i])
+            self.save_array_to_numpy_file(buf_array,save_path_test)
+
+    def save_full_spectrograms(self,main_output_folder,data_full):
+        save_path_train_spectrograms = os.path.join(main_output_folder,'Train',"spectrograms.npy")
+        save_path_train_dims = os.path.join(main_output_folder,'Train',"spectrograms_dims.npy")
+        save_path_test_spectrograms = os.path.join(main_output_folder,'Test',"spectrograms.npy")
+        save_path_test_dims = os.path.join(main_output_folder,'Test',"spectrograms_dims.npy")
         spectrogram_array,size_array = self.reshape_images(data_full)
-        np.save(save_path_spectrograms,np.array(spectrogram_array,dtype=object))
-        np.save(save_path_dims,np.array(size_array,dtype=object))
-        for key in data_full.dataDict:
-            save_path = os.path.join(main_output_folder,key+'.npy')
-            if type(data_full.dataDict[key][0]) is float:
-                np.save(save_path,np.array(data_full.dataDict[key],dtype=np.float32))
-            else:
-                np.save(save_path,np.array(data_full.dataDict[key],dtype=object))
+        train_size = int(len(spectrogram_array)*0.9)
+        test_size = len(spectrogram_array)-train_size
+        buf_array = []
+        buf_size_array = []
+        for i in range(train_size):
+            buf_array.append(spectrogram_array[i])
+            buf_size_array.append(size_array[i])
+        np.save(save_path_train_spectrograms,np.array(buf_array,dtype=object))
+        np.save(save_path_train_dims,np.array(buf_size_array,dtype=object))
+        buf_array.clear()
+        buf_size_array.clear()
+        for i in range(train_size,train_size+test_size):
+            buf_array.append(spectrogram_array[i])
+            buf_size_array.append(size_array[i])
+        np.save(save_path_test_spectrograms,np.array(buf_array,dtype=object))
+        np.save(save_path_test_dims,np.array(buf_size_array,dtype=object))
+        self.save_detail_to_numpy_files(data_full,
+        os.path.join(main_output_folder,'Train'),
+        os.path.join(main_output_folder,'Test'),
+        train_size,test_size)
+      
 
     def save_slice_spectrograms(self,main_output_folder,data_sliced):
-        save_dir = os.path.join(main_output_folder,'slices')
-        self.dm.create_main_dir(save_dir)
-        save_path_sliced_spectrograms = os.path.join(save_dir,"spectrograms_sliced.npy")
-        np.save(save_path_sliced_spectrograms,data_sliced.spectrograms)
-        for key in data_sliced.dataDict:
-            save_path = os.path.join(save_dir,key+'.npy')
-            if type(data_sliced.dataDict[key][0]) is float:
-                np.save(save_path,np.array(data_sliced.dataDict[key],dtype=np.float32))
-            else:
-                np.save(save_path,np.array(data_sliced.dataDict[key],dtype=object))
+        save_dir_train = os.path.join(main_output_folder,'Train','slices')
+        self.dm.create_main_dir(save_dir_train)
+        save_dir_test = os.path.join(main_output_folder,'Test','slices')
+        self.dm.create_main_dir(save_dir_test)
 
+        save_path_sliced_spectrograms_train = os.path.join(save_dir_train,"spectrograms_sliced.npy")
+        save_path_sliced_spectrograms_test = os.path.join(save_dir_test,"spectrograms_sliced.npy")
+        train_size = int(len(data_sliced.spectrograms)*0.9)
+        test_size = len(data_sliced.spectrograms)-train_size
+        buf_array = []
+        for i in range(train_size):
+            buf_array.append(data_sliced.spectrograms[i])
+        self.save_array_to_numpy_file(buf_array,save_path_sliced_spectrograms_train)
+        buf_array.clear()
+        for i in range(train_size,train_size+test_size):
+            buf_array.append(data_sliced.spectrograms[i])
+        self.save_array_to_numpy_file(buf_array,save_path_sliced_spectrograms_test)
+        self.save_detail_to_numpy_files(data_sliced,save_dir_train,save_dir_test,train_size,test_size)
 
     def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
         self.dm.create_main_dir(main_output_folder)
+        self.dm.create_main_dir(os.path.join(main_output_folder,'Train'))
+        self.dm.create_main_dir(os.path.join(main_output_folder,'Test'))
+
         data_full = self.read_full_spectrograms_to_array(dataset_folder)
         data_sliced = self.read_sliced_spectrograms(dataset_folder)
+
         self.save_full_spectrograms(main_output_folder,data_full)
         self.save_slice_spectrograms(main_output_folder,data_sliced)
 

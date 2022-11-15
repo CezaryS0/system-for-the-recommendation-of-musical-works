@@ -62,20 +62,10 @@ class DataManager:
                     #if counter==1:
                        #return
     
-    def get_spectrograms_and_titles(self,dataset_path):
-        for folder in os.listdir(dataset_path):
-            if not os.path.isfile(folder):
-                jsonPath = os.path.join(dataset_path,folder)
-                dirPath = os.path.join(dataset_path,folder,'slices')
-                slice_array = []
-                title_array = []
-                for slice in os.listdir(dirPath):
-                    title = self.get_track_name_from_json(os.path.join(jsonPath,folder+'.json'))
-                    slice_path = os.path.join(dirPath,slice)
-                    slice_array.append(self.numpy.read_image_to_numpy(slice_path))
-                    title_array.append(title)
-                return slice_array,title_array
-        return None
+    def get_test_spectrograms_slices_and_titles(self,dataset_path):
+        spectrograms_array = self.numpy.read_numpy_file(dataset_path,'spectrograms_sliced.npy')
+        titles_array = self.numpy.read_numpy_file(dataset_path,'title.npy')
+        return spectrograms_array,titles_array
 
     def get_spectrogram_from_name(self,dataset_path,name):
         for folder in os.listdir(dataset_path):

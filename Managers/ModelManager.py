@@ -1,10 +1,6 @@
-from keras.models import Model, load_model
+from keras.models import load_model
 from Numpy.NumpyArray import NumpyArray
 from Managers.DataManager import DataManager
-import numpy as np
-import os
-
-
 
 class ModelManager:
 
