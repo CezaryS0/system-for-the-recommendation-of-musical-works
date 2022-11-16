@@ -3,4 +3,4 @@
 from CNN.CNN_V3 import Encoder
 
 enc = Encoder()
-enc.train_model('/content/drive/MyDrive/Train_Data','slices/duration.npy')
+enc.train_model('Train_Data/Train','slices/duration.npy')

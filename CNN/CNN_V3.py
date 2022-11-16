@@ -69,6 +69,7 @@ class Encoder:
         print(np.shape(labels))
         labels = np.reshape(labels,(np.shape(labels)[0],1))
         train_x, test_x, train_y, test_y = self.prepare_data_for_training(spectrograms_array,labels)
+        del spectrograms_array
         shape_train_x = np.shape(train_x)
         input_shape = (shape_train_x[1],shape_train_x[2],1)
         self.encoder = self.encode(input_shape,np.shape(train_y)[1])

@@ -27,7 +27,7 @@ class NumpyArray:
             if folder.is_dir:
                 dirPath = os.path.join(main_output_folder,folder.name)
                 cvImage = cv2.imread(os.path.join(dirPath,folder.name+".png"))
-                matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
+                matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY,cv2.IMREAD_UNCHANGED)
                 jsonPath = os.path.join(dirPath,folder.name+".json")
                 json.file_open(jsonPath,'r')
                 json_file_data = json.read_JSON()
@@ -51,7 +51,7 @@ class NumpyArray:
                 json.file_open(jsonPath,'r')
                 json_file_data = json.read_JSON()
                 for file in self.dm.get_all_files_in_dir(dirPath):
-                    cvImage = cv2.imread(os.path.join(dirPath,file))
+                    cvImage = cv2.imread(os.path.join(dirPath,file),cv2.IMREAD_UNCHANGED)
                     matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
                     self.assingValuesToLists(data,json_file_data,matrix)
                 json.closeFile()
@@ -68,9 +68,9 @@ class NumpyArray:
 
     def save_array_to_numpy_file(self,arr,path):
         if type(arr[0]) is float:
-            np.save(path,np.array(arr,dtype=np.float32))
+            np.save(path,np.asarray(arr,dtype=np.float32))
         else:
-            np.save(path,np.array(arr,dtype=object))
+            np.save(path,np.asarray(arr))
 
     def save_detail_to_numpy_files(self,data,path_train,path_test,train_size,test_size):
         buf_array = []
