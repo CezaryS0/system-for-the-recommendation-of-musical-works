@@ -2,3 +2,6 @@ dataset
 Train_Spectrogram_Images
 Train_Data
 dataset_wav
+client_secrets.json
+credentials.json
+settings.yaml
