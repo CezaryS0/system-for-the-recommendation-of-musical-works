@@ -1,7 +1,7 @@
 import os
 from Managers.DirectoryManager import DirectoryManager
 from Managers.CSVManager import CSVManager
-from Utils import Utils
+from Utilities.Utils import Utils
 from Audio.Audio import Audio
 from Managers.JSONManager import JSONManager
 from Numpy.NumpyArray import NumpyArray

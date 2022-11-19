@@ -1,6 +1,7 @@
-from keras.models import load_model
+from keras.models import Model,load_model
 from Numpy.NumpyArray import NumpyArray
 from Managers.DataManager import DataManager
+from keras.utils import plot_model
 
 class ModelManager:
 
@@ -17,13 +18,20 @@ class ModelManager:
         if(self.model!=None):
             print(self.model.summary())
     
+    def discard_layers(self,n):
+        new_model = Model(self.model.inputs, self.model.layers[n].output)
+        self.model = new_model
+
     def get_model_shape(self):
         if self.model!=None:
             return self.model.output.shape
         return None
 
+    def generate_plot(self,path):
+        if self.model!=None:
+            plot_model(self.model, to_file=path,show_shapes=True)
 
     def model_predict(self,input):
         if self.model!=None:
-            return self.model.predict(input)
+            return self.model.predict(input,verbose=0)
         return None

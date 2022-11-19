@@ -1,16 +1,16 @@
 import os 
-import cv2
 import numpy as np
 from Numpy.TrainingData import TrainingData
 from Managers.JSONManager import JSONManager
 from Managers.DirectoryManager import DirectoryManager
-
+from Utilities.Utils import Utils
 
 class NumpyArray:
 
     def __init__(self) -> None:
         self.dm = DirectoryManager()
-    
+        self.ut = Utils()
+
     def assingValuesToLists(self,data,json_file_data,matrix):
         
         for name in json_file_data:
@@ -26,8 +26,7 @@ class NumpyArray:
         for folder in os.scandir(main_output_folder):
             if folder.is_dir:
                 dirPath = os.path.join(main_output_folder,folder.name)
-                cvImage = cv2.imread(os.path.join(dirPath,folder.name+".png"))
-                matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY,cv2.IMREAD_UNCHANGED)
+                matrix = self.ut.read_image_to_numpy(os.path.join(dirPath,folder.name+".png"))
                 jsonPath = os.path.join(dirPath,folder.name+".json")
                 json.file_open(jsonPath,'r')
                 json_file_data = json.read_JSON()
@@ -35,11 +34,6 @@ class NumpyArray:
                 json.closeFile()
 
         return data
-
-    def read_image_to_numpy(self,path):
-        cvImage = cv2.imread(path)
-        matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
-        return matrix
 
     def read_sliced_spectrograms(self,main_output_folder):
         data = TrainingData()
@@ -51,8 +45,7 @@ class NumpyArray:
                 json.file_open(jsonPath,'r')
                 json_file_data = json.read_JSON()
                 for file in self.dm.get_all_files_in_dir(dirPath):
-                    cvImage = cv2.imread(os.path.join(dirPath,file),cv2.IMREAD_UNCHANGED)
-                    matrix = cv2.cvtColor(cvImage,cv2.COLOR_BGR2GRAY)
+                    matrix = self.ut.read_image_to_numpy(os.path.join(dirPath,file))
                     self.assingValuesToLists(data,json_file_data,matrix)
                 json.closeFile()
         return data

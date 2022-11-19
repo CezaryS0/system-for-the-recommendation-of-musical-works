@@ -6,5 +6,5 @@ output_folder = 'Train_Data'
 
 googleDrive = GDManager()
 numpy = NumpyArray()
-numpy.save_dataset_to_numpy_files("Train_Spectrogram_Images",output_folder)
+numpy.save_dataset_to_numpy_files("Spectrograms",output_folder)
 googleDrive.upload_directory_recursively(output_folder,input_id)
