@@ -70,10 +70,10 @@ class Recommendation:
         return distance_array, predictions_title
         
     def print_predictions(self,name,distance_array,predictions_title):
-        print("\nOwO you like thwis sowng?: ",name,"UwU, thwen I would recummwend thwese: \n")
+        print("\nFor a song: ",name," I would recommend\n")
         for i in range(2):
             index = np.argmax(distance_array)
             value = distance_array[index]
-            print(i+1,". ",predictions_title[index], ", simwilarity = ",value)
+            print(i+1,". ",predictions_title[index], ", similarity = ",value)
             distance_array[index] = -np.inf
-        print('\nwith kisses <3\n')
+        print('\n')

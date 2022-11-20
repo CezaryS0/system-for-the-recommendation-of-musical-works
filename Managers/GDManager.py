@@ -23,6 +23,19 @@ class GDManager:
         new_id = googleFile.get('id')
         return new_id
 
+    def search_folder(self,inputId,absolute_path):
+        filelist = self.drive.ListFile({'q': "'{}' in parents and trashed=false".format(inputId)}).GetList()
+        for file in filelist:
+            print(file['title']," ",file['id'],'\n')
+        return filelist
+    
+    def delete_files(self,file_list,absolute_path):
+        name = os.path.basename(absolute_path)    
+        for file in file_list:
+            if file['title'] == name:
+                gfile = self.drive.CreateFile({'id':file['id']})
+                gfile.Delete()
+    
     def upload_file(self,absolute_path,folder_id):
         name = os.path.basename(absolute_path)
         file_metadata = {
@@ -44,6 +57,8 @@ class GDManager:
                 self.upload_file(absolute_path,folder_id)
         
     def upload_directory_recursively(self,path,folder_id):
+        file_list = self.search_folder(folder_id,path)
+        self.delete_files(file_list,path)
         new_id = self.upload_dir(path,folder_id)
         self.print_output(os.path.join(os.getcwd(),path))
         self.upload_rec(path,new_id)

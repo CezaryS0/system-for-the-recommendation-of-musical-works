@@ -1,9 +1,9 @@
+from Managers.DirectoryManager import DirectoryManager
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
 from PIL import Image
 import librosa
-import json
 import numpy as np
 #Define all major scales to be used later for finding key signature
 #Arrays all in the format:  [C, C#, D, Eb, E, F, F#, G, Ab, A, Bb, B]
@@ -25,25 +25,39 @@ class Audio:
 
     def __init__(self) -> None:
         self.fileDict = dict()
+        self.dm = DirectoryManager()
         self.y=None
         self.sr=None
 
-    def load_file(self,path,csv,index):
+
+    def librosa_load(self,path):
+        self.y,self.sr = librosa.load(path,mono=True)   
+        self.tempo, self.beat_frames = librosa.beat.beat_track(y=self.y,sr=self.sr)
+        self.tuning = librosa.estimate_tuning(y=self.y,sr=self.sr)
+        self.duration = self.y.shape[0]/self.sr
+        self.beat_times = librosa.frames_to_time(self.beat_frames,sr=self.sr)
+        self.rolloff_freq = round(np.mean(librosa.feature.spectral_rolloff(y=self.y,sr=self.sr,hop_length=512,roll_percent=0.9)),0)
+        self.mel = self.generate_spectrogram()
+        self.tonic, self.key_signature,self.z_dist_avg_to_tonic = self.findTonicAndKey()   
+
+    def load_file_csv(self,path,csv,index):
         try:
-            self.y,self.sr = librosa.load(path,mono=True)
+            self.librosa_load(path)
             self.track_title = csv.get_title(index)
-            self.tempo, self.beat_frames = librosa.beat.beat_track(y=self.y,sr=self.sr)
-            self.tuning = librosa.estimate_tuning(y=self.y,sr=self.sr)
-            self.duration = self.y.shape[0]/self.sr
-            self.beat_times = librosa.frames_to_time(self.beat_frames,sr=self.sr)
-            self.rolloff_freq = round(np.mean(librosa.feature.spectral_rolloff(y=self.y,sr=self.sr,hop_length=512,roll_percent=0.9)),0)
-            self.mel = self.generate_spectrogram()
-            self.tonic, self.key_signature,self.z_dist_avg_to_tonic = self.findTonicAndKey()
             return True
         except:
             pass
         return False
     
+    def load_file(self,path):
+        try:
+            self.librosa_load(path)
+            self.track_title = self.dm.get_file_name(path)[0]
+            return True
+        except:
+            pass
+        return False
+
     def get_file_details(self,index) ->None:
         
         self.fileDict.update({"id":index})
@@ -79,7 +93,7 @@ class Audio:
     def slice_spectrogram(self,spectrogram_path,filename,save_path):
         img = Image.open(spectrogram_path)
         subsample_size = 128
-        width, height = img.size
+        width = img.size[0]
         number_of_samples = int(width / subsample_size)
         for i in range(number_of_samples):
             start = i*subsample_size

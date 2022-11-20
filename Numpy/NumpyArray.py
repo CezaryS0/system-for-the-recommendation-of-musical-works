@@ -45,25 +45,35 @@ class NumpyArray:
                 json.file_open(jsonPath,'r')
                 json_file_data = json.read_JSON()
                 for file in self.dm.get_all_files_in_dir(dirPath):
-                    matrix = self.ut.read_image_to_numpy(os.path.join(dirPath,file))
+                    matrix = self.ut.read_image_to_numpy(file)
                     self.assingValuesToLists(data,json_file_data,matrix)
                 json.closeFile()
         return data
-                
+
+    def flatten_matrix(self,matrix):
+        x,y = np.shape(matrix)
+        return np.reshape(matrix,x*y),x,y
+    
     def reshape_images(self,data):
         reshaped_list = []
         size_list = []
         for elem in data.spectrograms:
-            x,y = np.shape(elem)
+            flat_mat,x,y = self.flatten_matrix(elem) 
             size_list.append([x,y])
-            reshaped_list.append(np.reshape(elem,x*y))
+            reshaped_list.append(flat_mat)
         return reshaped_list,size_list
 
-    def save_array_to_numpy_file(self,arr,path):
-        if type(arr[0]) is float:
-            np.save(path,np.asarray(arr,dtype=np.float32))
+    def convert_to_numpy_array(self,matrix):
+        if np.isscalar(matrix):
+            if type(matrix) is float:
+                return np.asarray(matrix,dtype=np.float32)
         else:
-            np.save(path,np.asarray(arr))
+            if type(matrix[0]) is float:
+                return np.asarray(matrix,dtype=np.float32)
+        return np.asarray(matrix)
+
+    def save_array_to_numpy_file(self,arr,path):
+        np.save(path,self.convert_to_numpy_array(arr))
 
     def save_detail_to_numpy_files(self,data,path_train,path_test,train_size,test_size):
         buf_array = []
@@ -157,3 +167,28 @@ class NumpyArray:
         numpy_array = np.load(path,allow_pickle=True)
         return numpy_array
 
+    def append_to_numpy(self,numpy_path,data):
+        numpy_array = np.load(numpy_path,allow_pickle=True)
+        numpy_array = np.append(numpy_array,data)
+        np.save(numpy_path,numpy_array)
+
+    def append_spectrograms_to_numpy(self,full_spect_path,sliced_path,numpy_path,details):
+        
+        save_path_sliced_spectrograms= os.path.join(numpy_path,'Test','slices',"spectrograms_sliced.npy")
+        save_path_spectrograms = os.path.join(numpy_path,'Test',"spectrograms.npy")
+        save_path_spectrograms_dims = os.path.join(numpy_path,'Test',"spectrograms.npy")
+        matrix = self.ut.read_image_to_numpy(full_spect_path)
+        flat_mat,x,y = self.flatten_matrix(matrix)
+        self.append_to_numpy(save_path_spectrograms,flat_mat)
+        self.append_to_numpy(save_path_spectrograms_dims,[x,y])
+        for key in details:
+            buf = os.path.join(numpy_path,'Test',key+'.npy')
+            self.append_to_numpy(buf,details[key])
+        slice_list = self.dm.get_all_files_in_dir(sliced_path)
+        matrix_array = []
+        for slice in slice_list:
+            matrix_array.append(self.ut.read_image_to_numpy(slice))
+            for key in details:
+                buf = os.path.join(numpy_path,'Test','slices',key+'.npy')
+                self.append_to_numpy(buf,details[key])
+        self.append_to_numpy(save_path_sliced_spectrograms,matrix_array)
