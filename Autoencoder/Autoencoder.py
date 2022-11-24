@@ -16,7 +16,7 @@ class Autoencoder:
     def prepare_data_for_training(self,spectograms_array):
         train_x = spectograms_array
         shape_train_x = np.shape(train_x)
-        train_x = train_x.astype('float32') /255
+        #train_x = train_x.astype('float32') /255
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
         return train_x
 
@@ -38,6 +38,7 @@ class Autoencoder:
         decoded = UpSampling2D((2,2))(decoded)
         decoded = Conv2D(filters=16,kernel_size=(3,3),activation='relu',padding='same')(decoded)
         decoded = UpSampling2D((2,2))(decoded)
+        decoded = Conv2D(filters=1, kernel_size=(3,3), activation='sigmoid', padding='same')(decoded)
         decoder = Model(input_img,decoded)
         return decoder
 
