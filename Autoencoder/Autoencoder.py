@@ -16,7 +16,7 @@ class Autoencoder:
     def prepare_data_for_training(self,spectograms_array):
         train_x = spectograms_array
         shape_train_x = np.shape(train_x)
-        #train_x = train_x.astype('float32') /255
+        train_x = train_x.astype('float32') /255
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
         return train_x
 
