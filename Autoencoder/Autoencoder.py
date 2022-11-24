@@ -16,7 +16,7 @@ class Autoencoder:
     def prepare_data_for_training(self,spectograms_array):
         train_x = spectograms_array
         shape_train_x = np.shape(train_x)
-        #train_x = train_x.astype('float32') /255
+        train_x = train_x.astype('float32') /255
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
         return train_x
 
@@ -47,14 +47,11 @@ class Autoencoder:
         train_x = self.prepare_data_for_training(spectrograms_array)
         shape = np.shape(train_x)
         shape = (shape[1],shape[2],1)
-        learning_rate = 1.0
         epochs = 50
-        decay_rate = learning_rate / epochs
-        adadelta = Adadelta(lr=learning_rate, rho=0.95, epsilon=1e-08, decay=decay_rate)
         autoencoder = self.autoencode(shape)
-        autoencoder.compile(optimizer=adadelta, loss='binary_crossentropy')
+        autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
         autoencoder.summary()
         checkpoint = ModelCheckpoint(model_save_path+'/weight.h5', monitor='val_loss',save_best_only=True)
-        autoencoder.fit(train_x,train_x,epochs=epochs, batch_size=128, shuffle=True,validation_data=(train_x,train_x), callbacks=[checkpoint])
+        autoencoder.fit(train_x,train_x,epochs=epochs, callbacks=[checkpoint])
         autoencoder.save(model_save_path+'/autoencoder.h5')
         return autoencoder
