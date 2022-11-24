@@ -27,12 +27,12 @@ class DataManager:
         self.json.closeFile()
         return data['title']
 
-    def createSpectrograms(self,f,filename_folder_path):
+    def createSpectrograms(self,f,filename_folder_path,n_samples):
         filename, _ = os.path.splitext(f)
         savepath = os.path.join(filename_folder_path,filename+".png")
         slices_path = os.path.join(filename_folder_path,'slices')
-        self.audio.save_spectrogram(savepath)
-        self.audio.slice_spectrogram(savepath,filename,slices_path)
+        self.audio.save_spectrogtram_mfcc(savepath)
+        self.audio.slice_spectrogram(savepath,filename,slices_path,n_samples)
         return savepath,slices_path
 
     def get_last_index(self,dataset_path):
@@ -57,14 +57,14 @@ class DataManager:
         return index
 
 
-    def create_dirs_and_save_spectrograms(self,filename,counter):
+    def create_dirs_and_save_spectrograms(self,f,filename,counter,n_samples):
         filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)
-        self.createSpectrograms(f,filename_folder_path)
+        self.createSpectrograms(f,filename_folder_path,n_samples)
         jsonPath = os.path.join(filename_folder_path ,filename+'.json')
         fileDict = self.audio.get_file_details(counter)
         self.save_details_to_Json(fileDict,jsonPath)
 
-    def create_and_slice_spectrograms(self,main_output_folder,dataset_path,csv_path):
+    def create_and_slice_spectrograms(self,main_output_folder,dataset_path,csv_path,n_samples):
         self.csv = CSVManager(csv_path)
         self.main_output_folder = main_output_folder
         tracks_id_list = self.getTrackIDList()
@@ -74,16 +74,16 @@ class DataManager:
             for f in files:
                 filename, file_ext = os.path.splitext(f)
                 current_track_id = self.ut.StringToInt(filename)
-                if file_ext.upper() == ".MP3":
+                if file_ext.upper() == ".WAV" or file_ext.upper() == ".MP3":
                     index = self.get_index(tracks_id_list,current_track_id)
                     if index>=0:
-                        if self.audio.load_file_csv(os.path.join(root,f),self.csv,index) == True:
-                            self.create_dirs_and_save_spectrograms(filename,counter)
+                        if self.audio.load_file_csv(os.path.join(root,f),self.csv,index,n_samples) == True:
+                            self.create_dirs_and_save_spectrograms(f,filename,counter,n_samples)
                             counter+=1
                             print(f)
                     else:
                         if self.audio.load_file(os.path.join(root,f)) == True:
-                            self.create_dirs_and_save_spectrograms(filename,counter)
+                            self.create_dirs_and_save_spectrograms(f,filename,counter,n_samples)
                             counter+=1
                             print(f)
 

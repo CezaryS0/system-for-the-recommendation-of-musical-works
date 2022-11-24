@@ -75,19 +75,27 @@ class NumpyArray:
     def save_array_to_numpy_file(self,arr,path):
         np.save(path,self.convert_to_numpy_array(arr))
 
-    def save_detail_to_numpy_files(self,data,path_train,path_test,train_size,test_size):
-        buf_array = []
+    def save_one_feature_to_numpy_file(self,key,data,path_train,path_test):
+        save_path_train = os.path.join(path_train,key+'.npy')
+        save_path_test = os.path.join(path_test,key+'.npy')
+        train_array,test_array = data.split_the_dataset_from_key(key,0.9)
+        self.save_array_to_numpy_file(train_array,save_path_train)
+        self.save_array_to_numpy_file(test_array,save_path_test)
+
+    def save_detail_to_numpy_files(self,data,path_train,path_test):
         for key in data.dataDict:
-            save_path_train = os.path.join(path_train,key+'.npy')
-            save_path_test = os.path.join(path_test,key+'.npy')
-            buf_array.clear()
-            for i in range(train_size):
-                buf_array.append(data.dataDict[key][i])
-            self.save_array_to_numpy_file(buf_array,save_path_train)
-            buf_array.clear()
-            for i in range(train_size,train_size+test_size):
-                buf_array.append(data.dataDict[key][i])
-            self.save_array_to_numpy_file(buf_array,save_path_test)
+            self.save_one_feature_to_numpy_file(key,data,path_train,path_test)
+
+
+    def save_detail_to_multilabel_numpy_file(self,data,path_train,path_test):
+        self.save_one_feature_to_numpy_file('title',data,path_train,path_test)
+        data.add_array_to_multilabel_from_key('key_signature')
+        labels = data.clusterize_kmeans('rolloff_freq')
+        data.add_array_to_multilabel_from_array(labels)
+        labels = data.clusterize_kmeans('tempo_bpm')
+        data.add_array_to_multilabel_from_array(labels)
+        self.save_array_to_numpy_file(data.mutlilabel_fields_train,path_train+'/multilabel_train.npy')
+        self.save_array_to_numpy_file(data.mutlilabel_fields_test,path_test+'/multilabel_test.npy')
 
     def save_full_spectrograms(self,main_output_folder,data_full):
         save_path_train_spectrograms = os.path.join(main_output_folder,'Train',"spectrograms.npy")
@@ -102,51 +110,50 @@ class NumpyArray:
         for i in range(train_size):
             buf_array.append(spectrogram_array[i])
             buf_size_array.append(size_array[i])
-        np.save(save_path_train_spectrograms,np.array(buf_array,dtype=object))
-        np.save(save_path_train_dims,np.array(buf_size_array,dtype=object))
+        np.save(save_path_train_spectrograms,np.asarray(buf_array,dtype=object))
+        np.save(save_path_train_dims,np.asarray(buf_size_array))
         buf_array.clear()
         buf_size_array.clear()
         for i in range(train_size,train_size+test_size):
             buf_array.append(spectrogram_array[i])
             buf_size_array.append(size_array[i])
-        np.save(save_path_test_spectrograms,np.array(buf_array,dtype=object))
-        np.save(save_path_test_dims,np.array(buf_size_array,dtype=object))
+        np.save(save_path_test_spectrograms,np.asarray(buf_array,dtype=object))
+        np.save(save_path_test_dims,np.asarray(buf_size_array))
         self.save_detail_to_numpy_files(data_full,
         os.path.join(main_output_folder,'Train'),
-        os.path.join(main_output_folder,'Test'),
-        train_size,test_size)
+        os.path.join(main_output_folder,'Test'))
       
 
     def save_slice_spectrograms(self,main_output_folder,data_sliced):
+
         save_dir_train = os.path.join(main_output_folder,'Train','slices')
         self.dm.create_main_dir(save_dir_train)
         save_dir_test = os.path.join(main_output_folder,'Test','slices')
         self.dm.create_main_dir(save_dir_test)
-
         save_path_sliced_spectrograms_train = os.path.join(save_dir_train,"spectrograms_sliced.npy")
         save_path_sliced_spectrograms_test = os.path.join(save_dir_test,"spectrograms_sliced.npy")
-        train_size = int(len(data_sliced.spectrograms)*0.9)
-        test_size = len(data_sliced.spectrograms)-train_size
-        buf_array = []
-        for i in range(train_size):
-            buf_array.append(data_sliced.spectrograms[i])
-        self.save_array_to_numpy_file(buf_array,save_path_sliced_spectrograms_train)
-        buf_array.clear()
-        for i in range(train_size,train_size+test_size):
-            buf_array.append(data_sliced.spectrograms[i])
-        self.save_array_to_numpy_file(buf_array,save_path_sliced_spectrograms_test)
-        self.save_detail_to_numpy_files(data_sliced,save_dir_train,save_dir_test,train_size,test_size)
+        train_array,test_array = data_sliced.split_the_dataset_from_array(data_sliced.spectrograms,0.9)
+        self.save_array_to_numpy_file(test_array,save_path_sliced_spectrograms_test)
+        self.save_array_to_numpy_file(train_array,save_path_sliced_spectrograms_train)
+        self.save_detail_to_numpy_files(data_sliced,save_dir_train,save_dir_test)
 
     def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
         self.dm.create_main_dir(main_output_folder)
         self.dm.create_main_dir(os.path.join(main_output_folder,'Train'))
         self.dm.create_main_dir(os.path.join(main_output_folder,'Test'))
 
-        data_full = self.read_full_spectrograms_to_array(dataset_folder)
+        #data_full = self.read_full_spectrograms_to_array(dataset_folder)
         data_sliced = self.read_sliced_spectrograms(dataset_folder)
 
-        self.save_full_spectrograms(main_output_folder,data_full)
+        #self.save_full_spectrograms(main_output_folder,data_full)
         self.save_slice_spectrograms(main_output_folder,data_sliced)
+
+    def save_data_fusion(self,main_output_folder,data_sliced):
+        save_dir_train = os.path.join(main_output_folder,'Train','slices')
+        self.dm.create_main_dir(save_dir_train)
+        save_dir_test = os.path.join(main_output_folder,'Test','slices')
+        self.dm.create_main_dir(save_dir_test)
+        
 
     def read_spectrograms_file(self,train_data_path):
         spectrogram_array = []

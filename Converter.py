@@ -29,6 +29,6 @@ class Converter:
                         print("Converting: ",f)
                         self.audio('dataset_wav',os.path.join(root,f))
 
-dataset = 'dataset/fma_small'
+dataset = 'dataset/fma_full'
 conv = Converter()
 conv.convertMP3toWAV(dataset)

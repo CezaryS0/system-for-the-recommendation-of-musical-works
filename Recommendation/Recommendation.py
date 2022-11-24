@@ -38,7 +38,7 @@ class Recommendation:
         predictions_song = []
         predictions_title = []
         counts = []
-        for i in range(10):
+        for i in range(100):
             if i in indexes:
                 continue
             if titles[i] not in predictions_title:

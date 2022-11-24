@@ -30,28 +30,28 @@ class Audio:
         self.sr=None
 
 
-    def librosa_load(self,path):
+    def librosa_load(self,path,n_samples):
         self.y,self.sr = librosa.load(path,mono=True)   
         self.tempo, self.beat_frames = librosa.beat.beat_track(y=self.y,sr=self.sr)
         self.tuning = librosa.estimate_tuning(y=self.y,sr=self.sr)
         self.duration = self.y.shape[0]/self.sr
         self.beat_times = librosa.frames_to_time(self.beat_frames,sr=self.sr)
         self.rolloff_freq = round(np.mean(librosa.feature.spectral_rolloff(y=self.y,sr=self.sr,hop_length=512,roll_percent=0.9)),0)
-        self.mel = self.generate_spectrogram()
+        self.mel = self.generate_spectrogram(n_samples)
         self.tonic, self.key_signature,self.z_dist_avg_to_tonic = self.findTonicAndKey()   
 
-    def load_file_csv(self,path,csv,index):
-        try:
-            self.librosa_load(path)
-            self.track_title = csv.get_title(index)
-            return True
-        except:
-            pass
-        return False
+    def load_file_csv(self,path,csv,index,n_samples):
+        #try:
+        self.librosa_load(path,n_samples)
+        self.track_title = csv.get_title(index)
+        return True
+        #except:
+            #pass
+        #return False
     
-    def load_file(self,path):
+    def load_file(self,path,n_samples):
         try:
-            self.librosa_load(path)
+            self.librosa_load(path,n_samples)
             self.track_title = self.dm.get_file_name(path)[0]
             return True
         except:
@@ -74,25 +74,35 @@ class Audio:
 
         return self.fileDict
         
-    def generate_spectrogram(self):
-        melspectrogram_array = librosa.feature.melspectrogram(y=self.y, sr=self.sr, n_mels=128,fmax=8000)
+    def generate_spectrogram(self,n_samples):
+        melspectrogram_array = librosa.feature.melspectrogram(y=self.y, sr=self.sr, n_mels=n_samples)
         mel = librosa.power_to_db(melspectrogram_array)
         return mel
     
-    def save_spectrogram(self,savepath):
+    def plt_prepare(self):
         fig_size = plt.rcParams["figure.figsize"]
         fig_size[0] = float(self.mel.shape[1]) / float(100)
         fig_size[1] = float(self.mel.shape[0]) / float(100)
         plt.rcParams["figure.figsize"] = fig_size
         plt.axis('off')
         plt.axes([0.,0.,1.,1.0],frameon=False,xticks=[],yticks=[])
+
+
+    def save_spectrogtram_mfcc(self,savepath):
+        self.plt_prepare()
+        mfcc = librosa.feature.mfcc(S=self.mel,n_mfcc=13)
+        librosa.display.specshow(mfcc)
+        plt.savefig(savepath, bbox_inches=None, pad_inches=0)
+        plt.close()
+
+    def save_spectrogram_mel(self,savepath):
+        self.plt_prepare()
         librosa.display.specshow(self.mel, cmap='gray_r')
         plt.savefig(savepath, bbox_inches=None, pad_inches=0)
         plt.close()
 
-    def slice_spectrogram(self,spectrogram_path,filename,save_path):
+    def slice_spectrogram(self,spectrogram_path,filename,save_path,subsample_size):
         img = Image.open(spectrogram_path)
-        subsample_size = 128
         width = img.size[0]
         number_of_samples = int(width / subsample_size)
         for i in range(number_of_samples):
