@@ -152,14 +152,12 @@ class NumpyArray:
         self.save_array_to_numpy_file(train_array,save_path_sliced_spectrograms_train)
         self.save_detail_to_numpy_files(data_sliced,save_dir_train,save_dir_test)
 
-    def save_dataset_to_numpy_files(self,encoder,dataset_folder,main_output_folder):
+    def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
         self.dm.create_main_dir(main_output_folder)
         self.dm.create_main_dir(os.path.join(main_output_folder,'Train'))
         self.dm.create_main_dir(os.path.join(main_output_folder,'Test'))
         data_sliced = self.read_sliced_spectrograms(dataset_folder)
         self.save_slice_spectrograms(main_output_folder,data_sliced)
-        self.save_spectrogram_representations(data_sliced,encoder,'Train_Data')
-        self.save_data_fusion(data_sliced,main_output_folder)
 
     def read_spectrograms_file(self,train_data_path):
         spectrogram_array = []
