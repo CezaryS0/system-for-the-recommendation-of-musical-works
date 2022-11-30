@@ -5,7 +5,6 @@ from Utilities.Utils import Utils
 from Audio.Audio import Audio
 from Managers.JSONManager import JSONManager
 from Numpy.NumpyArray import NumpyArray
-from pydub import AudioSegment
 
 class DataManager:
 
