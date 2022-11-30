@@ -18,6 +18,11 @@ class ModelManager:
         if(self.model!=None):
             print(self.model.summary())
     
+    def get_number_of_layers(self):
+        if self.model!=None:
+            return len(self.model.layers)
+        return 0
+        
     def discard_layers(self,n):
         new_model = Model(self.model.inputs, self.model.layers[n].output)
         self.model = new_model

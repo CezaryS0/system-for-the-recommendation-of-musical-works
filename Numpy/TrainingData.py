@@ -1,4 +1,5 @@
 from sklearn.cluster import KMeans
+from sklearn import preprocessing
 import numpy as np
 class TrainingData:
 
@@ -6,28 +7,47 @@ class TrainingData:
 
         self.fields =list()
         self.dataDict = dict()
-        self.mutlilabel_fields_train = list()
-        self.mutlilabel_fields_test = list()
         self.spectrograms = list()
-        self.data_fusion = list()
-
+        self.fusion = [np.array([]),np.array([])]
+        self.representations_train = list()
+        self.representations_test = list()
 
     def clear(self):
         self.fields.clear()
         self.dataDict.clear()
-        self.mutlilabel_fields.clear()
 
     def split_data(self):
         buf_array = []
-        buf_array.append(self.split_the_dataset_from_array(self.spectrograms,0.9))
-        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('rolloff_freq'),0.9))
-        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('tempo_bmp'),0.9))
-        buf_array.append(self.add_array_to_multilabel_from_key('key_signature'))
+        buf_array.append((self.representations_train,self.representations_test))
+        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('rolloff_freq',8),0.9))
+        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('tempo_bpm',8),0.9))
+        buf_array.append(self.split_the_dataset_from_array(self.encode_labels('key_signature'),0.9))
         return buf_array
 
     def create_data_fusion(self):
-        buf_array = self.split_data()
-        
+        splitted_data = self.split_data()
+        buf_array = []
+        for n in range(2):
+            for i in range(len(splitted_data[0][n])):
+                buf_array = np.concatenate((buf_array,splitted_data[0][n][i].flatten()))
+                for j in range(1,len(splitted_data)):
+                    buf_array = np.concatenate((buf_array,[splitted_data[j][n][i]]))
+                if self.fusion[n].size==0:
+                    self.fusion[n] = buf_array
+                else:
+                    self.fusion[n] = np.vstack((self.fusion[n],buf_array))
+                buf_array = []
+        return self.fusion[0],self.fusion[1]
+
+    def encode_labels(self,key):
+        unique_values = list(set(self.dataDict[key]))
+        le = preprocessing.LabelEncoder()
+        encoded_labels = le.fit_transform(unique_values)
+        values_dict = dict(zip(unique_values,encoded_labels))
+        buf_array = []
+        for val in self.dataDict[key]:
+            buf_array.append(values_dict[val])
+        return buf_array
 
     def split_the_dataset_from_key(self,key,percentage):
         train_array = []
@@ -51,18 +71,8 @@ class TrainingData:
             test_array.append(array[i])
         return train_array,test_array
 
-    def add_array_to_multilabel_from_key(self,key):
-        train_array,test_array = self.split_the_dataset_from_key(key,0.9)
-        self.mutlilabel_fields_train.append(train_array)
-        self.mutlilabel_fields_test.append(test_array)
-
-    def add_array_to_multilabel_from_array(self,array):
-        train_array,test_array = self.split_the_dataset_from_array(array,0.9)
-        self.mutlilabel_fields_train.append(train_array)
-        self.mutlilabel_fields_test.append(test_array)
-
-    def clusterize_kmeans(self,key):
-        km_model = KMeans(n_clusters=8)
+    def clusterize_kmeans(self,key,clusters):
+        km_model = KMeans(n_clusters=clusters)
         buf = np.reshape(self.dataDict[key],(-1,1))
         km_result = km_model.fit(buf)
         return km_result.labels_

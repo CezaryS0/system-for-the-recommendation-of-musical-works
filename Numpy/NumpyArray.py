@@ -54,6 +54,12 @@ class NumpyArray:
         x,y = np.shape(matrix)
         return np.reshape(matrix,x*y),x,y
     
+    def expand_and_normalize(self,songs):
+        songs = songs.astype(np.float32)
+        songs = np.expand_dims(songs,axis=3)
+        songs = songs/255
+        return songs
+
     def reshape_images(self,data):
         reshaped_list = []
         size_list = []
@@ -86,16 +92,24 @@ class NumpyArray:
         for key in data.dataDict:
             self.save_one_feature_to_numpy_file(key,data,path_train,path_test)
 
+    def save_spectrogram_representations(self,data,model,spectrogram_path):
+        spectrograms = self.read_sliced_spectrograms_file(spectrogram_path+'/Train')
+        spectrograms =  self.expand_and_normalize(spectrograms)
+        for image in spectrograms:
+            image = np.expand_dims(image,axis=0)
+            data.representations_train.append(model.model_predict(image))
+        self.save_array_to_numpy_file(data.representations_train,spectrogram_path+'/Train/representations.npy')
+        spectrograms = self.read_sliced_spectrograms_file(spectrogram_path+'/Test')
+        spectrograms =  self.expand_and_normalize(spectrograms)
+        for image in spectrograms:
+            image = np.expand_dims(image,axis=0)
+            data.representations_test.append(model.model_predict(image))
+        self.save_array_to_numpy_file(data.representations_test,spectrogram_path+'/Test/representations.npy')
 
-    def save_detail_to_multilabel_numpy_file(self,data,path_train,path_test):
-        self.save_one_feature_to_numpy_file('title',data,path_train,path_test)
-        data.add_array_to_multilabel_from_key('key_signature')
-        labels = data.clusterize_kmeans('rolloff_freq')
-        data.add_array_to_multilabel_from_array(labels)
-        labels = data.clusterize_kmeans('tempo_bpm')
-        data.add_array_to_multilabel_from_array(labels)
-        self.save_array_to_numpy_file(data.mutlilabel_fields_train,path_train+'/multilabel_train.npy')
-        self.save_array_to_numpy_file(data.mutlilabel_fields_test,path_test+'/multilabel_test.npy')
+    def save_data_fusion(self,data,output_path):
+        fusion_train, fusion_test = data.create_data_fusion()
+        self.save_array_to_numpy_file(fusion_train,output_path+'/Train/fusion.npy')
+        self.save_array_to_numpy_file(fusion_test,output_path+'/Test/fusion.npy')
 
     def save_full_spectrograms(self,main_output_folder,data_full):
         save_path_train_spectrograms = os.path.join(main_output_folder,'Train',"spectrograms.npy")
@@ -124,7 +138,7 @@ class NumpyArray:
         os.path.join(main_output_folder,'Test'))
       
 
-    def save_slice_spectrograms(self,main_output_folder,data_sliced):
+    def save_slice_spectrograms(self,main_output_folder,data_sliced:TrainingData):
 
         save_dir_train = os.path.join(main_output_folder,'Train','slices')
         self.dm.create_main_dir(save_dir_train)
@@ -133,27 +147,19 @@ class NumpyArray:
         save_path_sliced_spectrograms_train = os.path.join(save_dir_train,"spectrograms_sliced.npy")
         save_path_sliced_spectrograms_test = os.path.join(save_dir_test,"spectrograms_sliced.npy")
         train_array,test_array = data_sliced.split_the_dataset_from_array(data_sliced.spectrograms,0.9)
+       
         self.save_array_to_numpy_file(test_array,save_path_sliced_spectrograms_test)
         self.save_array_to_numpy_file(train_array,save_path_sliced_spectrograms_train)
         self.save_detail_to_numpy_files(data_sliced,save_dir_train,save_dir_test)
 
-    def save_dataset_to_numpy_files(self,dataset_folder,main_output_folder):
+    def save_dataset_to_numpy_files(self,encoder,dataset_folder,main_output_folder):
         self.dm.create_main_dir(main_output_folder)
         self.dm.create_main_dir(os.path.join(main_output_folder,'Train'))
         self.dm.create_main_dir(os.path.join(main_output_folder,'Test'))
-
-        #data_full = self.read_full_spectrograms_to_array(dataset_folder)
         data_sliced = self.read_sliced_spectrograms(dataset_folder)
-
-        #self.save_full_spectrograms(main_output_folder,data_full)
         self.save_slice_spectrograms(main_output_folder,data_sliced)
-
-    def save_data_fusion(self,main_output_folder,data_sliced):
-        save_dir_train = os.path.join(main_output_folder,'Train','slices')
-        self.dm.create_main_dir(save_dir_train)
-        save_dir_test = os.path.join(main_output_folder,'Test','slices')
-        self.dm.create_main_dir(save_dir_test)
-        
+        self.save_spectrogram_representations(data_sliced,encoder,'Train_Data')
+        self.save_data_fusion(data_sliced,main_output_folder)
 
     def read_spectrograms_file(self,train_data_path):
         spectrogram_array = []

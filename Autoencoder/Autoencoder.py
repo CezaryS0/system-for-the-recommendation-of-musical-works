@@ -1,10 +1,10 @@
 from Managers.DirectoryManager import DirectoryManager
 from Numpy.NumpyArray import NumpyArray
+from Managers.ModelManager import ModelManager
 import numpy as np
 from keras.models import Model
 from keras.layers import Input
 from keras.layers import Conv2D, MaxPooling2D, UpSampling2D
-from keras.optimizers import Adadelta
 from keras.callbacks import ModelCheckpoint
 
 class Autoencoder:
@@ -12,6 +12,7 @@ class Autoencoder:
     def __init__(self) -> None:
         self.dm = DirectoryManager()
         self.numpy = NumpyArray()
+        self.model = ModelManager()
 
     def prepare_data_for_training(self,spectograms_array):
         train_x = spectograms_array
@@ -40,6 +41,7 @@ class Autoencoder:
         decoded = UpSampling2D((2,2))(decoded)
         decoded = Conv2D(filters=1, kernel_size=(3,3), activation='sigmoid', padding='same')(decoded)
         decoder = Model(input_img,decoded)
+        
         return decoder
 
     def build_autoencoder(self,dataset_path,model_save_path):
