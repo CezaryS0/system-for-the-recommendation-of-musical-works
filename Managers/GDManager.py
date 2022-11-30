@@ -89,6 +89,9 @@ class GDManager:
                     new_id = self.find_folder_id_rec(name,file['id'])
         return new_id
 
+    def download_dir_rec(self):
+        
+
     def upload_rec(self,path,folder_id):
         for files in os.listdir(path):
             absolute_path = os.path.join(os.getcwd(),path,files)
