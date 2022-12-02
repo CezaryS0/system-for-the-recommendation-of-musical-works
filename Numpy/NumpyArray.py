@@ -54,11 +54,14 @@ class NumpyArray:
         x,y = np.shape(matrix)
         return np.reshape(matrix,x*y),x,y
     
-    def expand_and_normalize(self,songs):
+    def expand_and_normalize(self,songs,axis):
         songs = songs.astype(np.float32)
-        songs = np.expand_dims(songs,axis=3)
+        songs = np.expand_dims(songs,axis=axis)
         songs = songs/255
         return songs
+
+    def expand(self,arr,axis):
+        return np.expand_dims(arr,axis)
 
     def reshape_images(self,data):
         reshaped_list = []
@@ -94,17 +97,20 @@ class NumpyArray:
 
     def save_spectrogram_representations(self,data,model,spectrogram_path):
         spectrograms = self.read_sliced_spectrograms_file(spectrogram_path+'/Train')
-        spectrograms =  self.expand_and_normalize(spectrograms)
+        spectrograms =  self.expand_and_normalize(spectrograms,3)
         for image in spectrograms:
             image = np.expand_dims(image,axis=0)
             data.representations_train.append(model.model_predict(image))
         self.save_array_to_numpy_file(data.representations_train,spectrogram_path+'/Train/representations.npy')
         spectrograms = self.read_sliced_spectrograms_file(spectrogram_path+'/Test')
-        spectrograms =  self.expand_and_normalize(spectrograms)
+        spectrograms =  self.expand_and_normalize(spectrograms,3)
         for image in spectrograms:
             image = np.expand_dims(image,axis=0)
             data.representations_test.append(model.model_predict(image))
         self.save_array_to_numpy_file(data.representations_test,spectrogram_path+'/Test/representations.npy')
+
+    def save_final_representations(self,model,fusion_path):
+        fusion_test = self.numpy.read_numpy_file(fusion_path,'fusion.npy')
 
     def save_data_fusion(self,data,output_path):
         fusion_train, fusion_test = data.create_data_fusion()

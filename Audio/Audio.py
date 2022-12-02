@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import librosa
 import numpy as np
+import io
+
+
 #Define all major scales to be used later for finding key signature
 #Arrays all in the format:  [C, C#, D, Eb, E, F, F#, G, Ab, A, Bb, B]
 majorscales = {'C' : [1,0,1,0,1,1,0,1,0,1,0,1],
@@ -58,7 +61,7 @@ class Audio:
             pass
         return False
 
-    def get_file_details(self,index) ->None:
+    def get_file_details(self,index=0) ->None:
         
         self.fileDict.update({"id":index})
         self.fileDict.update({"title":self.track_title}) #title_of_a_track
@@ -88,6 +91,23 @@ class Audio:
         plt.axes([0.,0.,1.,1.0],frameon=False,xticks=[],yticks=[])
 
 
+    def slice_spectrograms_in_memory(self,subsample_size):
+        self.plt_prepare()
+        mfcc = librosa.feature.mfcc(S=self.mel,n_mfcc=13)
+        librosa.display.specshow(mfcc)
+        buf = io.BytesIO()
+        plt.savefig(buf,bbox_inches=None, pad_inches=0)
+        plt.close()
+        buf.seek(0)
+        img = Image.open(buf)
+        width = img.size[0]
+        number_of_samples = int(width / subsample_size)
+        buf_array = []
+        for i in range(number_of_samples):
+            start = i*subsample_size
+            buf_array.append(img.crop((start,0.,start+subsample_size,subsample_size)))
+        return buf_array
+        
     def save_spectrogtram_mfcc(self,savepath):
         self.plt_prepare()
         mfcc = librosa.feature.mfcc(S=self.mel,n_mfcc=13)
