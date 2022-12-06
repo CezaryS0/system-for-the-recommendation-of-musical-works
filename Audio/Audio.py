@@ -1,4 +1,5 @@
 from Managers.DirectoryManager import DirectoryManager
+from Utilities.Utils import Utils
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
@@ -29,6 +30,7 @@ class Audio:
     def __init__(self) -> None:
         self.fileDict = dict()
         self.dm = DirectoryManager()
+        self.ut = Utils()
         self.y=None
         self.sr=None
 
@@ -105,8 +107,10 @@ class Audio:
         buf_array = []
         for i in range(number_of_samples):
             start = i*subsample_size
-            buf_array.append(img.crop((start,0.,start+subsample_size,subsample_size)))
-        return buf_array
+            img_crop = img.crop((start,0.,start+subsample_size,subsample_size))
+            matrix = self.ut.convert_Image_to_cv2(img_crop)
+            buf_array.append(matrix)
+        return np.asarray(buf_array)
         
     def save_spectrogtram_mfcc(self,savepath):
         self.plt_prepare()

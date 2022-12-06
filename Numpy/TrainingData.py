@@ -16,16 +16,16 @@ class TrainingData:
         self.fields.clear()
         self.dataDict.clear()
 
-    def split_data(self):
+    def split_data(self,labels_path):
         buf_array = []
         buf_array.append((self.representations_train,self.representations_test))
-        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('rolloff_freq',8),0.9))
-        buf_array.append(self.split_the_dataset_from_array(self.clusterize_kmeans('tempo_bpm',8),0.9))
-        buf_array.append(self.split_the_dataset_from_array(self.encode_labels('key_signature'),0.9))
+        buf_array.append(self.split_the_dataset_from_array(self.dataDict['rolloff_freq'],0.9))
+        buf_array.append(self.split_the_dataset_from_array(self.dataDict['tempo_bpm'],0.9))
+        buf_array.append(self.split_the_dataset_from_array(self.encode_labels('key_signature',labels_path),0.9))
         return buf_array
 
-    def create_data_fusion(self):
-        splitted_data = self.split_data()
+    def create_data_fusion(self,labels_path):
+        splitted_data = self.split_data(labels_path)
         buf_array = []
         for n in range(2):
             for i in range(len(splitted_data[0][n])):
@@ -64,11 +64,12 @@ class TrainingData:
             buf_array.append(values_dict[val])
         return buf_array
 
-    def encode_labels(self,key):
+    def encode_labels(self,key,labels_path):
         unique_values = list(set(self.dataDict[key]))
         le = preprocessing.LabelEncoder()
         encoded_labels = le.fit_transform(unique_values)
         values_dict = dict(zip(unique_values,encoded_labels))
+        np.save(labels_path+'/'+key+'.npy',values_dict)
         buf_array = []
         for val in self.dataDict[key]:
             buf_array.append(values_dict[val])

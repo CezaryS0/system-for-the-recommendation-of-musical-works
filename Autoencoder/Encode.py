@@ -1,6 +1,7 @@
 from Managers.ModelManager import ModelManager
 from Numpy.TrainingData import TrainingData
 from Numpy.NumpyArray import NumpyArray
+from Numpy.NumpyArray import np
 from Audio.Audio import Audio
 import numpy as np
 class Encode:
@@ -27,6 +28,8 @@ class Encode:
             representations = [self.encoder2D.model_predict(self.numpy.expand(x,0)) for x in slices]
             fusion = self.data.fuse_single_image(representations,details)
             fusion = self.numpy.expand_and_normalize(fusion,2)
+
             fusion = self.numpy.expand(fusion,0)
+            print(fusion)
             return self.encoder1D.model_predict(fusion)
 

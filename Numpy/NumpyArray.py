@@ -112,8 +112,8 @@ class NumpyArray:
     def save_final_representations(self,model,fusion_path):
         fusion_test = self.numpy.read_numpy_file(fusion_path,'fusion.npy')
 
-    def save_data_fusion(self,data,output_path):
-        fusion_train, fusion_test = data.create_data_fusion()
+    def save_data_fusion(self,data:TrainingData,output_path):
+        fusion_train, fusion_test = data.create_data_fusion(output_path)
         self.save_array_to_numpy_file(fusion_train,output_path+'/Train/fusion.npy')
         self.save_array_to_numpy_file(fusion_test,output_path+'/Test/fusion.npy')
 

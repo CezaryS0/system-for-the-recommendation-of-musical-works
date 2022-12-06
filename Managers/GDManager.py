@@ -69,9 +69,10 @@ class GDManager:
         return new_id
 
     def upload_file_to_folder(self,name,absolute_path,folder_id):
+        file_name = os.path.basename(absolute_path)
         new_id = self.find_folder_id_rec(name,folder_id)
         print(new_id)
-        file_id = self.get_file_id_by_name('representations.npy',new_id)
+        file_id = self.get_file_id_by_name(file_name,new_id)
         if file_id!=0:
             self.delete_file(file_id)
         self.upload_file(absolute_path,new_id)

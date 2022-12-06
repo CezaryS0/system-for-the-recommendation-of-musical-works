@@ -3,6 +3,7 @@ from Managers.ModelManager import ModelManager
 from Managers.GDManager import GDManager
 from Database.Database import Database
 from Audio.Audio import Audio
+from Recommendation.Recommendation_V2 import Recommendation_V2
 class Controller:
 
     def __init__(self) -> None:
@@ -12,7 +13,8 @@ class Controller:
         self.googleDrive = GDManager()
         self.SQL_DB = Database()
         self.audio = Audio()
-        self.input_id = '1eZ5SoAqW4c3RwNAM5m0FWJxzt3nrutVV'
+        self.rec = Recommendation_V2()
+        self.input_id = '1egJkNjgZOqZ3NNLVx_8TKuf-r5JFfPSY'
         self.output_folder = 'Train_Data'
 
     def generate_and_upload_representations(self):
@@ -47,5 +49,5 @@ class Controller:
             self.SQL_DB.insert_into_tables(titles[i],representations[i])
         self.SQL_DB.connection.close()
         
-    #def generate_recommendations(self,new_music_file_path):
-        
+    def generate_recommendations(self,new_music_file_path):
+        self.rec.generate_recommendation(new_music_file_path)

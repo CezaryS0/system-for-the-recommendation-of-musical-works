@@ -6,7 +6,6 @@ import os
 class Database:
 
     def __init__(self) -> None:
-        self.drop_database()
         self.connection = sqlite3.connect("Database/aquarium.db")
         self.cursor = self.connection.cursor()
 
