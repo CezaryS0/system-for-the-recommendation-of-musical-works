@@ -39,6 +39,31 @@ class TrainingData:
                 buf_array = []
         return self.fusion[0],self.fusion[1]
 
+    def fuse_single_image(self,representations,details:dict):
+        buf_array = []
+        fusion = []
+        for r in representations:
+            buf_array = np.concatenate((buf_array,r.flatten()))
+            buf_array = np.concatenate((buf_array,self.clusterize_kmeans_array(details['rolloff_freq'],8)))
+            buf_array = np.concatenate((buf_array,self.clusterize_kmeans_array(details['tempo_bpm'],8)))
+            buf_array = np.concatenate((buf_array,self.encode_labels_from_array(details['key_signature'])))
+            if fusion.size==0:
+                fusion = buf_array
+            else:
+                fusion = np.vstack((fusion,buf_array))
+            buf_array = []
+        return fusion
+
+    def encode_labels_from_array(self,arr):
+        unique_values = list(set(arr))
+        le = preprocessing.LabelEncoder()
+        encoded_labels = le.fit_transform(unique_values)
+        values_dict = dict(zip(unique_values,encoded_labels))
+        buf_array = []
+        for val in arr:
+            buf_array.append(values_dict[val])
+        return buf_array
+
     def encode_labels(self,key):
         unique_values = list(set(self.dataDict[key]))
         le = preprocessing.LabelEncoder()
@@ -70,6 +95,12 @@ class TrainingData:
         for i in range(train_size,train_size+test_size):
             test_array.append(array[i])
         return train_array,test_array
+
+    def clusterize_kmeans_array(self,arr,clusters):
+        km_model = KMeans(n_clusters=clusters)
+        buf = np.reshape(arr,(-1,1))
+        km_result = km_model.fit(buf)
+        return km_result.labels_
 
     def clusterize_kmeans(self,key,clusters):
         km_model = KMeans(n_clusters=clusters)
