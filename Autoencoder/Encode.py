@@ -26,10 +26,7 @@ class Encode:
             slices = self.audio.slice_spectrograms_in_memory(256)
             slices = self.numpy.expand_and_normalize(slices,3)
             representations = [self.encoder2D.model_predict(self.numpy.expand(x,0)) for x in slices]
-            fusion = self.data.fuse_single_image(representations,details)
+            fusion = self.data.fuse_single_image(representations,details,'Train_Data')
             fusion = self.numpy.expand_and_normalize(fusion,2)
-
-            fusion = self.numpy.expand(fusion,0)
-            print(fusion)
-            return self.encoder1D.model_predict(fusion)
-
+            fusion = [self.encoder1D.model_predict(self.numpy.expand(x,0)) for x in fusion]
+            return fusion

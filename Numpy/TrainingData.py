@@ -39,20 +39,33 @@ class TrainingData:
                 buf_array = []
         return self.fusion[0],self.fusion[1]
 
-    def fuse_single_image(self,representations,details:dict):
+    def fuse_single_image(self,representations,details:dict,path):
         buf_array = []
-        fusion = []
+        fusion = np.array([])
+        read_dictionary = np.load(path+'/key_signature.npy',allow_pickle=True).item()
         for r in representations:
             buf_array = np.concatenate((buf_array,r.flatten()))
-            buf_array = np.concatenate((buf_array,self.clusterize_kmeans_array(details['rolloff_freq'],8)))
-            buf_array = np.concatenate((buf_array,self.clusterize_kmeans_array(details['tempo_bpm'],8)))
-            buf_array = np.concatenate((buf_array,self.encode_labels_from_array(details['key_signature'])))
+            buf_array = np.concatenate((buf_array,[details['rolloff_freq']]))
+            buf_array = np.concatenate((buf_array,[details['tempo_bpm']]))
+            buf_array = np.concatenate((buf_array,[self.encode_next_label(details['key_signature'],read_dictionary)])) 
             if fusion.size==0:
                 fusion = buf_array
             else:
                 fusion = np.vstack((fusion,buf_array))
             buf_array = []
         return fusion
+
+    def encode_next_label(self,label,read_dictionary):
+        val = 0
+        if label in read_dictionary:
+            val = read_dictionary[label]
+        else:
+            max = 0
+            for key in read_dictionary:
+                if max < read_dictionary[key]:
+                    max = read_dictionary[key]
+            val = max + 1
+        return val
 
     def encode_labels_from_array(self,arr):
         unique_values = list(set(arr))

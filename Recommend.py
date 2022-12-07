@@ -1,4 +1,4 @@
 from Controller.Controller import Controller
 
 controller = Controller()
-controller.generate_recommendations('CustomSongs/Trough_11.mp3')
+controller.generate_recommendations('CustomSongs/Forest_spell_chant_6.mp3')

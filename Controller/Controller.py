@@ -43,10 +43,13 @@ class Controller:
         fusion_test = self.numpy.read_numpy_file(self.output_folder+'/Test','fusion.npy')
         titles = self.numpy.read_numpy_file(self.output_folder+'/Test/slices','title.npy')
         fusion_test = self.numpy.expand_and_normalize(fusion_test,2)
-        representations = [self.numpy.expand(arr,0) for arr in fusion_test]
+        representations = [self.encoder1D.model_predict(self.numpy.expand(arr,0)) for arr in fusion_test]
+        self.SQL_DB.drop_database()
+        self.SQL_DB.connect_to_database()
         self.SQL_DB.create_table()
         for i in range(len(titles)):
             self.SQL_DB.insert_into_tables(titles[i],representations[i])
+        self.SQL_DB.connection.commit()
         self.SQL_DB.connection.close()
         
     def generate_recommendations(self,new_music_file_path):
