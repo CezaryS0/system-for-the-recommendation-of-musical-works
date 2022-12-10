@@ -53,4 +53,4 @@ class Controller:
         self.SQL_DB.connection.close()
         
     def generate_recommendations(self,new_music_file_path):
-        self.rec.generate_recommendation(new_music_file_path)
+        return self.rec.generate_recommendation(new_music_file_path)

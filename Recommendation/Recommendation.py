@@ -69,6 +69,8 @@ class Recommendation:
         distance_array, predictions_title = self.predict_songs(prediction_anchor,songs,titles,indexes)
         return distance_array, predictions_title
         
+    
+    
     def print_predictions(self,name,distance_array,predictions_title):
         print("\nFor a song: ",name," I would recommend\n")
         for i in range(2):

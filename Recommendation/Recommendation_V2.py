@@ -21,8 +21,6 @@ class Recommendation_V2:
         for i in range(len(predictions_song)):
             predictions_song[i] = predictions_song[i] / counts[i]
             pred_song = predictions_song[i]
-            print(prediction_anchor.flatten().reshape(1, -1))
-            print(pred_song.flatten().reshape(1, -1))
             similarity = cosine_similarity(prediction_anchor.flatten().reshape(1, -1) ,pred_song.flatten().reshape(1, -1))   
             distance_array.append(similarity)
         return np.array(distance_array)
@@ -60,6 +58,15 @@ class Recommendation_V2:
             distance_array[index] = -np.inf
         print('\n')
 
+    def recommendations_to_list(self,distance_array,predictions_title):
+        rec = list()
+        for i in range(2):
+            index = np.argmax(distance_array)
+            value = distance_array[index]
+            rec.append((predictions_title[index],value))
+            distance_array[index] = -np.inf
+        return rec
+
     def generate_recommendation(self,music_file_path):
         name = self.dm.get_file_name(music_file_path)[0]
         fusion = self.encode.encode(music_file_path)
@@ -67,5 +74,6 @@ class Recommendation_V2:
         title_array,representaions = self.database.read_database()
         prediction_anchor = self.create_prediction_anchor(fusion)
         distance_array, predictions_title = self.predict_songs(prediction_anchor,title_array,representaions)
-        self.print_predictions(name,distance_array,predictions_title)
+        #self.print_predictions(name,distance_array,predictions_title)
+        return self.recommendations_to_list(distance_array,predictions_title)
         
