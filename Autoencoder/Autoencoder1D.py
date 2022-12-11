@@ -25,7 +25,11 @@ class Autoencoder1D:
     def autoencode(self,shape):
         
         input_img = Input(shape=shape)
-        encoded = Conv1D(filters=16,kernel_size=3,activation='relu',padding='same')(input_img)
+        encoded = Conv1D(filters=64,kernel_size=3,activation='relu',padding='same')(input_img)
+        encoded = MaxPooling1D(2,padding='same')(encoded)
+        encoded = Conv1D(filters=32,kernel_size=3,activation='relu',padding='same')(encoded)
+        encoded = MaxPooling1D(2,padding='same')(encoded)
+        encoded = Conv1D(filters=16,kernel_size=3,activation='relu',padding='same')(encoded)
         encoded = MaxPooling1D(2,padding='same')(encoded)
         encoded = Conv1D(filters=8,kernel_size=3,activation='relu',padding='same')(encoded)
         encoded = MaxPooling1D(2,padding='same')(encoded)
@@ -38,6 +42,10 @@ class Autoencoder1D:
         decoded = Conv1D(filters=8,kernel_size=3, activation='relu',padding='same')(decoded)
         decoded = UpSampling1D(2)(decoded)
         decoded = Conv1D(filters=16,kernel_size=3, activation='relu',padding='same')(decoded)
+        decoded = UpSampling1D(2)(decoded)
+        decoded = Conv1D(filters=32,kernel_size=3, activation='relu',padding='same')(decoded)
+        decoded = UpSampling1D(2)(decoded)
+        decoded = Conv1D(filters=64,kernel_size=3, activation='relu',padding='same')(decoded)
         decoded = UpSampling1D(2)(decoded)
         decoded = Conv1D(filters=1, kernel_size=3, activation='sigmoid', padding='same')(decoded)
         decoded = Cropping1D((0,np.shape(decoded)[1] - shape[0]))(decoded)
