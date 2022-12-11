@@ -11,6 +11,13 @@ class DirectoryManager:
             return os.path.splitext(path)
         return None
 
+    def get_file_path_by_name(self,name,dataset_path):
+        for root, _, files in os.walk(dataset_path):
+            for f in files:
+                if name == f:
+                    return os.path.join(root,f)
+        return None
+
     def create_main_dir(self,main_output_folder):
         if not os.path.exists(main_output_folder):
             os.makedirs(main_output_folder)

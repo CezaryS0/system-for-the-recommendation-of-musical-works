@@ -21,10 +21,23 @@ class DataManager:
         self.json.closeFile()
 
     def get_track_name_from_json(self,jsonPath):
-        self.json.file_open(jsonPath,'w')
+        self.json.file_open(jsonPath,'r')
         data = self.json.read_JSON()
         self.json.closeFile()
         return data['title']
+
+    def get_track_by_ID(self,dataset_path,id):
+        for root, _, files in os.walk(dataset_path):
+            for f in files:
+                _, file_ext = os.path.splitext(f)
+                if file_ext.upper() == ".JSON":
+                    self.json.file_open(os.path.join(root,f),'r')
+                    data = self.json.read_JSON()
+                    self.json.closeFile()
+                    if data['id'] == id:
+                        print(data['filename'])
+                        return self.dm.get_file_path_by_name(data['filename'],'dataset/fma_full')
+        return None
 
     def createSpectrograms(self,f,filename_folder_path,n_samples):
         filename, _ = os.path.splitext(f)
@@ -54,7 +67,6 @@ class DataManager:
         except:
             pass
         return index
-
 
     def create_dirs_and_save_spectrograms(self,f,filename,counter,n_samples):
         filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)

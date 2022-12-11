@@ -27,19 +27,19 @@ class Recommendation_V2:
 
     def predict_songs(self,prediction_anchor,title_array,representations):
         predictions_song = []
-        predictions_title = []
+        predictions_id = []
         counts = []
         for i in range(int(len(title_array))):
-            if title_array[i] not in predictions_title:
-                predictions_title.append(title_array[i])
+            if i not in predictions_id:
+                predictions_id.append(i)
                 predictions_song.append(representations[i])
                 counts.append(1)
-            elif title_array[i] in predictions_title:
-                index = predictions_title.index(title_array[i])
+            elif i in predictions_id:
+                index = predictions_id.index(i)
                 predictions_song[index] = predictions_song[index] + representations[i]
                 counts[index] = counts[index] + 1
         distance_array = self.cosine_similarity(prediction_anchor,predictions_song,counts)
-        return distance_array, predictions_title
+        return distance_array,predictions_id
 
     def create_prediction_anchor(self,fusion):
         prediction_anchor = np.zeros(np.shape(fusion[0]))
@@ -48,22 +48,14 @@ class Recommendation_V2:
         prediction_anchor/=len(fusion)
         return prediction_anchor
 
-    def print_predictions(self,name,distance_array,predictions_title):
-        print("\nFor a song: ",name," I would recommend\n")
-        print(distance_array)
-        for i in range(2):
-            index = np.argmax(distance_array)
-            value = distance_array[index]
-            print(i+1,". ",predictions_title[index], ", similarity = ",value)
-            distance_array[index] = -np.inf
-        print('\n')
-
-    def recommendations_to_list(self,distance_array,predictions_title):
+    def recommendations_to_list(self,distance_array,title_array,predictions_id):
         rec = list()
         for i in range(2):
             index = np.argmax(distance_array)
-            value = distance_array[index]
-            rec.append((predictions_title[index],value))
+            value = distance_array[index][0][0]
+            id = predictions_id[index]
+            title = title_array[id]
+            rec.append((id,title,value))
             distance_array[index] = -np.inf
         return rec
 
@@ -73,7 +65,6 @@ class Recommendation_V2:
         self.database.connect_to_database()
         title_array,representaions = self.database.read_database()
         prediction_anchor = self.create_prediction_anchor(fusion)
-        distance_array, predictions_title = self.predict_songs(prediction_anchor,title_array,representaions)
-        #self.print_predictions(name,distance_array,predictions_title)
-        return self.recommendations_to_list(distance_array,predictions_title)
+        distance_array, predictions_id = self.predict_songs(prediction_anchor,title_array,representaions)
+        return self.recommendations_to_list(distance_array,title_array,predictions_id)
         
