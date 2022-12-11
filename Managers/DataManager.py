@@ -84,6 +84,7 @@ class DataManager:
                         if self.audio.load_file(os.path.join(root,f)) == True:
                             self.create_dirs_and_save_spectrograms(f,filename,counter,n_samples)
                             counter+=1
+                            
                             print(f)
 
     def get_test_spectrograms_slices_and_titles(self,dataset_path):

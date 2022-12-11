@@ -13,13 +13,12 @@ class Controller:
         self.googleDrive = GDManager()
         self.SQL_DB = Database()
         self.audio = Audio()
-        self.rec = Recommendation_V2()
         self.input_id = '1egJkNjgZOqZ3NNLVx_8TKuf-r5JFfPSY'
         self.output_folder = 'Train_Data'
 
     def generate_and_upload_representations(self):
         self.encoder2D.load_trained_model('Autoencoder_Saved/autoencoder.h5')
-        self.encoder2D.discard_layers(-8)
+        self.encoder2D.discard_layers(-12)
         data = self.numpy.read_sliced_spectrograms('Spectrograms')
         self.numpy.save_spectrogram_representations(data,self.encoder2D,self.output_folder)
         self.googleDrive.upload_file_to_folder('Test',self.output_folder+'/Test/representations.npy',self.input_id)
@@ -39,7 +38,7 @@ class Controller:
 
     def generate_final_representations_and_upload(self):
         self.encoder1D.load_trained_model('Autoencoder_Saved/autoencoder_secondary.h5')
-        self.encoder1D.discard_layers(-9)
+        self.encoder1D.discard_layers(-13)
         fusion_test = self.numpy.read_numpy_file(self.output_folder+'/Test','fusion.npy')
         titles = self.numpy.read_numpy_file(self.output_folder+'/Test/slices','title.npy')
         fusion_test = self.numpy.expand_and_normalize(fusion_test,2)
@@ -53,4 +52,5 @@ class Controller:
         self.SQL_DB.connection.close()
         
     def generate_recommendations(self,new_music_file_path):
+        self.rec = Recommendation_V2()
         return self.rec.generate_recommendation(new_music_file_path)
