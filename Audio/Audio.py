@@ -63,9 +63,10 @@ class Audio:
             pass
         return False
 
-    def get_file_details(self,index=0) ->None:
+    def get_file_details(self,filename,index=0,) ->None:
         
         self.fileDict.update({"id":index})
+        self.fileDict.update({"filename":filename})
         self.fileDict.update({"title":self.track_title}) #title_of_a_track
         self.fileDict.update({"samplefreq":self.sr})
         self.fileDict.update({"sample_points":self.y.shape[0]})

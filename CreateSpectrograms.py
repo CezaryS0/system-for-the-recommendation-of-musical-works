@@ -1,8 +1,8 @@
 from Managers.DataManager import DataManager
 from Numpy.NumpyArray import NumpyArray
 
-#dataset = 'dataset/fma_full'
-dataset = 'dataset_wav'
+dataset = 'dataset/fma_full'
+#dataset = 'dataset_wav'
 csv_data = 'dataset/fma_metadata/tracks.csv'
 dm = DataManager()
 numpy = NumpyArray()

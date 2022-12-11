@@ -60,7 +60,7 @@ class DataManager:
         filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)
         self.createSpectrograms(f,filename_folder_path,n_samples)
         jsonPath = os.path.join(filename_folder_path ,filename+'.json')
-        fileDict = self.audio.get_file_details(counter)
+        fileDict = self.audio.get_file_details(f,counter)
         self.save_details_to_Json(fileDict,jsonPath)
 
     def create_and_slice_spectrograms(self,main_output_folder,dataset_path,csv_path,n_samples):
