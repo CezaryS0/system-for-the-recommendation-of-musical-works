@@ -24,7 +24,11 @@ class Autoencoder:
     def autoencode(self,shape):
         
         input_img = Input(shape=shape)
-        encoded = Conv2D(filters=16,kernel_size=(3,3),activation='relu',padding='same')(input_img)
+        encoded = Conv2D(filters=64,kernel_size=(3,3),activation='relu',padding='same')(input_img)
+        encoded = MaxPooling2D((2,2),padding='same')(encoded)
+        encoded = Conv2D(filters=32,kernel_size=(3,3),activation='relu',padding='same')(encoded)
+        encoded = MaxPooling2D((2,2),padding='same')(encoded)
+        encoded = Conv2D(filters=16,kernel_size=(3,3),activation='relu',padding='same')(encoded)
         encoded = MaxPooling2D((2,2),padding='same')(encoded)
         
         encoded = Conv2D(filters=8,kernel_size=(3,3),activation='relu',padding='same')(encoded)
@@ -38,6 +42,10 @@ class Autoencoder:
         decoded = Conv2D(filters=8,kernel_size=(3,3),activation='relu',padding='same')(decoded)
         decoded = UpSampling2D((2,2))(decoded)
         decoded = Conv2D(filters=16,kernel_size=(3,3),activation='relu',padding='same')(decoded)
+        decoded = UpSampling2D((2,2))(decoded)
+        decoded = Conv2D(filters=32,kernel_size=(3,3),activation='relu',padding='same')(decoded)
+        decoded = UpSampling2D((2,2))(decoded)
+        decoded = Conv2D(filters=64,kernel_size=(3,3),activation='relu',padding='same')(decoded)
         decoded = UpSampling2D((2,2))(decoded)
         decoded = Conv2D(filters=1, kernel_size=(3,3), activation='sigmoid', padding='same')(decoded)
         decoder = Model(input_img,decoded)
