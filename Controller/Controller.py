@@ -1,8 +1,8 @@
-from Numpy.NumpyArray import NumpyArray
-from Managers.ModelManager import ModelManager
-from Managers.GDManager import GDManager
-from Database.Database import Database
-from Audio.Audio import Audio
+from Model.Numpy.NumpyArray import NumpyArray
+from Model.Managers.ModelManager import ModelManager
+from Model.Managers.GDManager import GDManager
+from Model.Database.Database import Database
+from Model.Audio.Audio import Audio
 from Recommendation.Recommendation_V2 import Recommendation_V2
 class Controller:
 

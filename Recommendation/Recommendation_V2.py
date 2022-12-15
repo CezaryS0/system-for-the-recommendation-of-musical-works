@@ -1,9 +1,9 @@
-from Autoencoder.Encode import Encode
-from Numpy.NumpyArray import NumpyArray
-from Database.Database import Database
-from Managers.ModelManager import ModelManager
-from Numpy.NumpyArray import np
-from Managers.DirectoryManager import DirectoryManager
+from Model.Autoencoder.Encode import Encode
+from Model.Numpy.NumpyArray import NumpyArray
+from Model.Database.Database import Database
+from Model.Managers.ModelManager import ModelManager
+from Model.Numpy.NumpyArray import np
+from Model.Managers.DirectoryManager import DirectoryManager
 from sklearn.metrics.pairwise import cosine_similarity
 
 class Recommendation_V2:

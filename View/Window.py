@@ -1,7 +1,7 @@
 import tkinter as tk
 import tkinter.ttk as ttk
-from Numpy.NumpyArray import NumpyArray
-from Managers.DataManager import DataManager
+from Model.Numpy.NumpyArray import NumpyArray
+from Model.Managers.DataManager import DataManager
 from Controller.Controller import Controller
 from tkinter import filedialog as fd
 from View.RoundedButton import RoundedButton
@@ -44,7 +44,7 @@ class Window:
     def create_widget(self,master,text):
 
         frame1 = ttk.Frame(master,style="RoundedFrame", padding=10)
-        text1 = tk.Text(frame1, borderwidth=0, highlightthickness=0, wrap="word",width=60, height=4,font=('Times',20))
+        text1 = tk.Text(frame1, borderwidth=0, highlightthickness=0, wrap="word",width=60, height=4,font=('Times',20),foreground="green")
         text1.pack(fill="both",side="top", expand=False)
         text1.bind("<FocusIn>", lambda event: frame1.state(["focus"]))
         text1.bind("<FocusOut>", lambda event: frame1.state(["!focus"]))
@@ -141,6 +141,7 @@ class Window:
                      "image", borderImage,
                      ("focus", focusBorderImage),
                      border=16, sticky="nsew")
+        self.style.configure("RoundedFrame",background='green')
         self.style.layout("RoundedFrame",[("RoundedFrame", {"sticky": "nsew"})])
         self.create_label(100,0,"🎵Music Recommender🎵",self.window,tk.X)
         title_array = self.load_test_songs()

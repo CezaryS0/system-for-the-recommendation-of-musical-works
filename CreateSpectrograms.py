@@ -1,5 +1,5 @@
-from Managers.DataManager import DataManager
-from Numpy.NumpyArray import NumpyArray
+from Model.Managers.DataManager import DataManager
+from Model.Numpy.NumpyArray import NumpyArray
 
 dataset = 'dataset/fma_full'
 #dataset = 'dataset_wav'
