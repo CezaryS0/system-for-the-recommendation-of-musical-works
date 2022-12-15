@@ -17,8 +17,8 @@ class Window:
     def __init__(self) -> None:
         self.window = tk.Tk()
         self.style = ttk.Style()
-        self.window.geometry("1150x600")
-        self.window.minsize(1150,600)
+        self.window.geometry("1200x600")
+        self.window.minsize(1200,600)
         self.window.title("System for the recommendation of musical works")
         self.numpy = NumpyArray()
         self.p =vlc.MediaPlayer()
@@ -103,15 +103,23 @@ class Window:
         self.textBox1.insert("end",'Current Track\n\n' + text)
 
     def create_scrollable_list(self,n):
-        self.listbox = tk.Listbox(self.window,width=n)
+        
+        frame2 = tk.Frame(master=self.window,bg="white",width=300)
+        frame2.pack(side=tk.LEFT,fill=tk.BOTH)
+        self.listbox = tk.Listbox(frame2,width=50)
         self.listbox.bind('<<ListboxSelect>>', self.onselect)
-        self.listbox.pack(side = tk.LEFT, fill = tk.Y)
         scrollbar = tk.Scrollbar(self.window)
+        scrollbar_X = tk.Scrollbar(frame2,orient='horizontal')
+        self.listbox.pack(side = tk.TOP, fill = tk.BOTH,expand=True)
         scrollbar.pack(side = tk.LEFT, fill = tk.Y)
+        scrollbar_X.pack(side=tk.BOTTOM,fill=tk.X)
         for title in self.test_list:
              self.listbox.insert(tk.END, title[1])
+        
         self.listbox.config(yscrollcommand = scrollbar.set)
+        self.listbox.config(xscrollcommand = scrollbar_X.set)
         scrollbar.config(command = self.listbox.yview)
+        scrollbar_X.config(command=self.listbox.xview)
 
     def load_test_songs(self):
         title_array = self.numpy.read_numpy_file('Train_Data/Test/slices','title.npy')

@@ -87,7 +87,7 @@ class NumpyArray:
     def save_one_feature_to_numpy_file(self,key,data,path_train,path_test):
         save_path_train = os.path.join(path_train,key+'.npy')
         save_path_test = os.path.join(path_test,key+'.npy')
-        train_array,test_array = data.split_the_dataset_from_key(key,0.9)
+        train_array,test_array = data.split_the_dataset_from_key(key,0.6)
         self.save_array_to_numpy_file(train_array,save_path_train)
         self.save_array_to_numpy_file(test_array,save_path_test)
 
