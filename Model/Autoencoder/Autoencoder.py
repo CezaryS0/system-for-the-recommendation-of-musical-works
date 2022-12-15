@@ -1,11 +1,13 @@
-from Managers.DirectoryManager import DirectoryManager
-from Numpy.NumpyArray import NumpyArray
-from Managers.ModelManager import ModelManager
+from Model.eManagers.DirectoryManager import DirectoryManager
+from Model.Numpy.NumpyArray import NumpyArray
+from Model.Managers.ModelManager import ModelManager
 import numpy as np
+from sklearn.model_selection import train_test_split
 from keras.models import Model
 from keras.layers import Input
 from keras.layers import Conv2D, MaxPooling2D, UpSampling2D
 from keras.callbacks import ModelCheckpoint
+from matplotlib import pyplot as plt
 
 class Autoencoder:
 
@@ -19,7 +21,8 @@ class Autoencoder:
         shape_train_x = np.shape(train_x)
         train_x = train_x.astype('float32') /255
         train_x = np.reshape(train_x,(shape_train_x[0],shape_train_x[1],shape_train_x[2],1))
-        return train_x
+        train_x, test_x, train_y, test_y = train_test_split(train_x, train_x, test_size=0.05, shuffle=True)
+        return train_x,test_x, train_y, test_y
 
     def autoencode(self,shape):
         
@@ -63,6 +66,14 @@ class Autoencoder:
         autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
         autoencoder.summary()
         checkpoint = ModelCheckpoint(model_save_path+'/weight.h5', monitor='val_loss',save_best_only=True)
-        autoencoder.fit(train_x,train_x,epochs=epochs, callbacks=[checkpoint])
+        history = autoencoder.fit(train_x,train_x,epochs=epochs, callbacks=[checkpoint])
+        plt.plot(history.history['loss'])
+        plt.plot(history.history['val_loss'])
+        plt.title('model loss')
+        plt.ylabel('loss')
+        plt.xlabel('epoch')
+        plt.legend(['train', 'val'], loc='upper left')
+        plt.show()
+        plt.savefig(model_save_path+'/autoencoder_val_loss.png')
         autoencoder.save(model_save_path+'/autoencoder.h5')
         return autoencoder
