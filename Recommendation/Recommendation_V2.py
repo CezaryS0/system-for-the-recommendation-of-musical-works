@@ -12,9 +12,7 @@ class Recommendation_V2:
         self.encode = Encode()
         self.numpy = NumpyArray()
         self.database = Database()
-        self.model = ModelManager()
         self.dm = DirectoryManager()
-        self.model.load_trained_model('Autoencoder_Saved/autoencoder_secondary.h5')
 
     def cosine_similarity(self,prediction_anchor,predictions_song,counts):
         distance_array = []

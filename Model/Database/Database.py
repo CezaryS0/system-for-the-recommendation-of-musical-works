@@ -33,8 +33,8 @@ class Database:
         self.cursor.execute("INSERT INTO {tn} (title, representation, shape,dtype) VALUES(?,?,?,?)".format(tn='representations'),(title, numpy_string,shape,str(matrix.dtype)))
 
     def drop_database(self):
-        if os.path.isfile(os.path.abspath("Database/aquarium.db")):
-            os.remove(os.path.abspath("Database/aquarium.db"))
+        if os.path.isfile(os.path.abspath("Model/Database/aquarium.db")):
+            os.remove(os.path.abspath("Model/Database/aquarium.db"))
 
     def read_database(self):
         rows = self.cursor.execute("SELECT * FROM representations")

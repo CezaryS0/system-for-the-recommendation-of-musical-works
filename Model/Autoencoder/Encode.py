@@ -15,9 +15,9 @@ class Encode:
 
     def prepare_models(self):
         self.encoder1D.load_trained_model('Autoencoder_Saved/autoencoder_secondary.h5')
-        self.encoder1D.discard_layers(-13)
+        self.encoder1D.discard_layers(-15)
         self.encoder2D.load_trained_model('Autoencoder_Saved/autoencoder.h5')
-        self.encoder2D.discard_layers(-12)
+        self.encoder2D.discard_layers(-14)
 
     def encode(self,new_music_file_path):
         if self.audio.load_file(new_music_file_path,256)==True:

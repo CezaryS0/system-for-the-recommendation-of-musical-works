@@ -43,7 +43,7 @@ class Autoencoder:
 
         decoded = Conv2D(filters=4,kernel_size=(3,3),activation='relu',padding='same')(encoded)
         decoded = UpSampling2D((2,2))(decoded)
-        decoded = Conv2D(filters=8,kernel_size=(3,3),activation='relu',padding='same')(encoded)
+        decoded = Conv2D(filters=8,kernel_size=(3,3),activation='relu',padding='same')(decoded)
         decoded = UpSampling2D((2,2))(decoded)
         decoded = Conv2D(filters=8,kernel_size=(3,3),activation='relu',padding='same')(decoded)
         decoded = UpSampling2D((2,2))(decoded)
