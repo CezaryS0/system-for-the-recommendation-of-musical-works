@@ -55,12 +55,12 @@ class Audio:
         return False
     
     def load_file(self,path,n_samples):
-        try:
-            self.librosa_load(path,n_samples)
-            self.track_title = self.dm.get_file_name(path)[0]
-            return True
-        except:
-            pass
+        #try:
+        self.librosa_load(path,n_samples)
+        self.track_title = self.dm.get_file_name(path)[0]
+        return True
+        #except:
+            #pass
         return False
 
     def get_file_details(self,filename,index=0,) ->None:
