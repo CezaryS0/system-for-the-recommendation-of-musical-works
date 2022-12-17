@@ -1,4 +1,4 @@
-from Model.eManagers.DirectoryManager import DirectoryManager
+from Model.Managers.DirectoryManager import DirectoryManager
 from Model.Numpy.NumpyArray import NumpyArray
 from Model.Managers.ModelManager import ModelManager
 import numpy as np
@@ -61,22 +61,22 @@ class Autoencoder:
     def build_autoencoder(self,dataset_path,model_save_path):
         self.dm.create_main_dir(model_save_path)
         spectrograms_array = self.numpy.read_sliced_spectrograms_file(dataset_path)
-        train_x = self.prepare_data_for_training(spectrograms_array)
+        train_x,test_x, train_y, test_y = self.prepare_data_for_training(spectrograms_array)
         shape = np.shape(train_x)
         shape = (shape[1],shape[2],1)
-        epochs = 50
+        epochs = 3
         autoencoder = self.autoencode(shape)
-        autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy')
+        autoencoder.compile(optimizer='adadelta', loss='binary_crossentropy',metrics=["acc"])
         autoencoder.summary()
         checkpoint = ModelCheckpoint(model_save_path+'/weight.h5', monitor='val_loss',save_best_only=True)
-        history = autoencoder.fit(train_x,train_x,epochs=epochs, callbacks=[checkpoint])
+        history = autoencoder.fit(train_x,train_x,epochs=epochs,validation_split=0.1,validation_data=(test_x, test_y))
+        
         plt.plot(history.history['loss'])
         plt.plot(history.history['val_loss'])
         plt.title('model loss')
         plt.ylabel('loss')
         plt.xlabel('epoch')
         plt.legend(['train', 'val'], loc='upper left')
-        plt.show()
         plt.savefig(model_save_path+'/autoencoder_val_loss.png')
         autoencoder.save(model_save_path+'/autoencoder.h5')
         return autoencoder
