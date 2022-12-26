@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from Model.Numpy.NumpyArray import NumpyArray
 from Model.Managers.DataManager import DataManager
+from Model.Managers.DirectoryManager import DirectoryManager
 from Controller.Controller import Controller
 from tkinter import filedialog as fd
 from View.RoundedButton import RoundedButton
@@ -25,6 +26,7 @@ class Window:
         self.numpy = NumpyArray()
         self.p =vlc.MediaPlayer()
         self.dm = DataManager()
+        self.dir_manager=DirectoryManager()
         self.widget = Widget()
         self.controller = Controller()
         self.currentTrack = ""
@@ -85,12 +87,22 @@ class Window:
         self.textBox1.delete(0.0,"end")
         self.textBox1.insert("end",'Current Track\n\n' + text)
     
+    def find_track_ID(self,title):
+        for song in self.test_list:
+            if song[1]==title:
+                return song[0]
+        return 0
+
     def recommendation_thread(self):
-        list_array = self.controller.generate_recommendations(self.currentTrack)
+        list_array,result_path = self.controller.generate_recommendations(self.currentTrack)
         self.textBox2.delete(0.0,"end")
         recommendations = ""
         for rec in list_array:
             recommendations+='Song: '+rec[0]+'\n'
+            id = self.find_track_ID(rec[0])
+            path = self.dm.get_track_spectrogram_by_ID('Spectrograms',id)
+            self.dir_manager.create_main_dir(result_path+'/recommendations')
+            self.dir_manager.copy_file(path,result_path+'/recommendations/'+os.path.basename(path))
         self.textBox2.insert("end",'Recommendation\n\n' +recommendations)
 
     def recommendCallback(self):

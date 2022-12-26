@@ -1,3 +1,4 @@
+from operator import itemgetter
 import os
 from Model.Managers.DirectoryManager import DirectoryManager
 from Model.Managers.CSVManager import CSVManager
@@ -39,6 +40,17 @@ class DataManager:
                         return self.dm.get_file_path_by_name(data['filename'],'dataset/fma_full')
         return None
 
+    def get_track_spectrogram_by_ID(self,dataset_path,id):
+        for root, _, files in os.walk(dataset_path):
+            for f in files:
+                filename, file_ext = os.path.splitext(f)
+                if file_ext.upper() == ".JSON":
+                    self.json.file_open(os.path.join(root,f),'r')
+                    data = self.json.read_JSON()
+                    self.json.closeFile()
+                    if data['id'] == id:
+                        return os.path.join(root,filename+'.png')
+
     def createSpectrograms(self,f,filename_folder_path,n_samples):
         filename, _ = os.path.splitext(f)
         savepath = os.path.join(filename_folder_path,filename+".png")
@@ -69,7 +81,7 @@ class DataManager:
         return index
 
     def create_dirs_and_save_spectrograms(self,f,filename,counter,n_samples):
-        filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename)
+        filename_folder_path = self.dm.create_filename_dir(self.main_output_folder,filename,'slices')
         self.createSpectrograms(f,filename_folder_path,n_samples)
         jsonPath = os.path.join(filename_folder_path ,filename+'.json')
         fileDict = self.audio.get_file_details(f,counter)
@@ -119,8 +131,7 @@ class DataManager:
         if os.path.exists(path):
             if self.audio.load_file(path) == True:
                 filename = self.dm.get_file_name(path)
-                print(filename[0])
-                filename_folder_path = self.dm.create_filename_dir(main_output_folder,filename[0])
+                filename_folder_path = self.dm.create_filename_dir(main_output_folder,filename[0],'slices')
                 full_spect,sliced_path =self.createSpectrograms(filename[0],filename_folder_path)
                 jsonPath = os.path.join(filename_folder_path ,filename[0]+'.json')
                 index = self.get_last_index(main_output_folder)

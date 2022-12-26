@@ -4,6 +4,7 @@ from Model.Database.Database import Database
 from Model.Numpy.NumpyArray import np
 from Model.Utilities.Timer import Timer
 from Model.Managers.DirectoryManager import DirectoryManager
+from Model.Managers.DataManager import DataManager
 from sklearn.metrics.pairwise import cosine_similarity
 
 class Recommendation_V2:
@@ -13,7 +14,9 @@ class Recommendation_V2:
         self.numpy = NumpyArray()
         self.database = Database()
         self.dm = DirectoryManager()
+        self.data_manager = DataManager()
         self.timer = Timer()
+        self.result_path = ""
 
     def cosine_similarity(self,prediction_anchor,predictions_song,counts):
         distance_array = []
@@ -53,6 +56,7 @@ class Recommendation_V2:
             index = np.argmax(distance_array)
             value = distance_array[index][0][0]
             rec.append((predictions_title[index],value))
+            
             distance_array[index] = -np.inf
         return rec
 
@@ -60,7 +64,7 @@ class Recommendation_V2:
         self.timer.startTimer()
         fusion = self.encode.encode(music_file_path)
         self.timer.endTimer()
-        self.timer.saveResults("Full encoding",'results.txt',False)
+        self.timer.saveResults("Full encoding",self.result_path,False)
         return fusion
 
     def calculate_similarities(self,fusion,title_array,representations):
@@ -68,13 +72,16 @@ class Recommendation_V2:
         prediction_anchor = self.create_prediction_anchor(fusion)
         distance_array, predictions_title = self.predict_songs(prediction_anchor,title_array,representations)
         self.timer.endTimer()
-        self.timer.saveResults("Cosine similarity for every song",'results.txt',False)
+        self.timer.saveResults("Cosine similarity for every song",self.result_path,False)
         return distance_array, predictions_title
 
     def generate_recommendation(self,music_file_path):
+        filename = self.dm.get_file_name(music_file_path)[0]
+        self.result_path = 'Recommendation Results/'+filename+'/results.txt'
+
         fusion = self.encode_spectrograms(music_file_path)
         self.database.connect_to_database()
         title_array,representations = self.database.read_database()
         distance_array, predictions_title = self.calculate_similarities(fusion,title_array,representations)
-        return self.recommendations_to_list(distance_array,predictions_title)
+        return self.recommendations_to_list(distance_array,predictions_title),'Recommendation Results/'+filename
         

@@ -1,5 +1,5 @@
 import os
-
+import shutil
 class DirectoryManager:
 
     def __init__(self) -> None:
@@ -22,10 +22,10 @@ class DirectoryManager:
         if not os.path.exists(main_output_folder):
             os.makedirs(main_output_folder)
 
-    def create_filename_dir(self,current_path,filename):
+    def create_filename_dir(self,current_path,filename,name):
         path_buf_array = os.path.join(current_path,filename)
         self.create_main_dir(path_buf_array)
-        self.create_main_dir(os.path.join(path_buf_array,'slices'))
+        self.create_main_dir(os.path.join(path_buf_array,name))
         return path_buf_array
 
     def get_all_files_in_dir(self,dir_path) -> list:
@@ -49,3 +49,6 @@ class DirectoryManager:
                     os.makedirs(path_buf_array)
             output_path = path_buf_array
         return output_path
+
+    def copy_file(self,src,dst):
+        shutil.copyfile(src, dst)

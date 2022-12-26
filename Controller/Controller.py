@@ -60,7 +60,7 @@ class Controller:
     def generate_recommendations(self,new_music_file_path):
         self.rec = Recommendation_V2()
         self.timer.startTimer()
-        list_array = self.rec.generate_recommendation(new_music_file_path)
+        list_array,result_path = self.rec.generate_recommendation(new_music_file_path)
         self.timer.endTimer()
         self.timer.saveResults('Full recommendation generation','results.txt',False)
-        return list_array
+        return list_array,result_path
