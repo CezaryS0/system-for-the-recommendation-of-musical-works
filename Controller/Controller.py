@@ -3,6 +3,7 @@ from Model.Managers.ModelManager import ModelManager
 from Model.Managers.GDManager import GDManager
 from Model.Database.Database import Database
 from Model.Audio.Audio import Audio
+from Model.Utilities.Timer import Timer
 from Recommendation.Recommendation_V2 import Recommendation_V2
 class Controller:
 
@@ -13,6 +14,7 @@ class Controller:
         self.googleDrive = GDManager()
         self.SQL_DB = Database()
         self.audio = Audio()
+        self.timer = Timer()
         self.input_id = '1egJkNjgZOqZ3NNLVx_8TKuf-r5JFfPSY'
         self.output_folder = 'Train_Data'
 
@@ -36,13 +38,8 @@ class Controller:
         self.numpy.save_dataset_to_numpy_files("Spectrograms",self.output_folder)
         self.googleDrive.upload_directory_recursively(self.output_folder,self.input_id,True)
 
-    def generate_final_representations_and_upload(self):
-        self.encoder1D.load_trained_model('Autoencoder_Saved/autoencoder_secondary.h5')
-        self.encoder1D.discard_layers(-15)
-        fusion_test = self.numpy.read_numpy_file(self.output_folder+'/Test','fusion.npy')
-        titles = self.numpy.read_numpy_file(self.output_folder+'/Test/slices','title.npy')
-        fusion_test = self.numpy.expand_and_normalize(fusion_test,2)
-        representations = [self.encoder1D.model_predict(self.numpy.expand(arr,0)) for arr in fusion_test]
+
+    def retreive_data_from_database(self,titles,representations):
         self.SQL_DB.drop_database()
         self.SQL_DB.connect_to_database()
         self.SQL_DB.create_table()
@@ -50,7 +47,20 @@ class Controller:
             self.SQL_DB.insert_into_tables(titles[i],representations[i])
         self.SQL_DB.connection.commit()
         self.SQL_DB.connection.close()
+
+    def generate_final_representations_and_upload(self):
+        self.encoder1D.load_trained_model('Autoencoder_Saved/autoencoder_secondary.h5')
+        self.encoder1D.discard_layers(-15)
+        fusion_test = self.numpy.read_numpy_file(self.output_folder+'/Test','fusion.npy')
+        titles = self.numpy.read_numpy_file(self.output_folder+'/Test/slices','title.npy')
+        fusion_test = self.numpy.expand_and_normalize(fusion_test,2)
+        representations = [self.encoder1D.model_predict(self.numpy.expand(arr,0)) for arr in fusion_test]
+        self.retreive_data_from_database(titles,representations)
         
     def generate_recommendations(self,new_music_file_path):
         self.rec = Recommendation_V2()
-        return self.rec.generate_recommendation(new_music_file_path)
+        self.timer.startTimer()
+        list_array = self.rec.generate_recommendation(new_music_file_path)
+        self.timer.endTimer()
+        self.timer.saveResults('Full recommendation generation','results.txt',False)
+        return list_array

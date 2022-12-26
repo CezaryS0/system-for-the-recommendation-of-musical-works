@@ -1,14 +1,16 @@
-Librosa load : 3467.484474182129 miliseconds
+Librosa load : 3403.472423553467 miliseconds
 
-Spectrograms generation : 361.83929443359375 miliseconds
+Spectrograms generation : 361.01603507995605 miliseconds
 
-Spectrogram encoding : 1695.228099822998 miliseconds
+Spectrogram encoding : 1684.8945617675781 miliseconds
 
-Fusion generation : 1.012563705444336 miliseconds
+Fusion generation : 1.0006427764892578 miliseconds
 
-Fusion encoding : 1339.7109508514404 miliseconds
+Fusion encoding : 1342.724084854126 miliseconds
 
-Full encoding : 6879.304647445679 miliseconds
+Full encoding : 6807.238817214966 miliseconds
 
-Cosine similarity for every song : 13.1378173828125 miliseconds
+Cosine similarity for every song : 13.053417205810547 miliseconds
+
+Full recommendation generation : 6848.322629928589 miliseconds
 
