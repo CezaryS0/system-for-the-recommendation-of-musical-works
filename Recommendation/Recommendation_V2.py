@@ -1,8 +1,8 @@
 from Model.Autoencoder.Encode import Encode
 from Model.Numpy.NumpyArray import NumpyArray
 from Model.Database.Database import Database
-from Model.Managers.ModelManager import ModelManager
 from Model.Numpy.NumpyArray import np
+from Model.Utilities.Timer import Timer
 from Model.Managers.DirectoryManager import DirectoryManager
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -13,6 +13,7 @@ class Recommendation_V2:
         self.numpy = NumpyArray()
         self.database = Database()
         self.dm = DirectoryManager()
+        self.timer = Timer()
 
     def cosine_similarity(self,prediction_anchor,predictions_song,counts):
         distance_array = []
@@ -25,19 +26,19 @@ class Recommendation_V2:
 
     def predict_songs(self,prediction_anchor,title_array,representations):
         predictions_song = []
-        predictions_id = []
+        predictions_title = []
         counts = []
-        for i in range(int(len(title_array))):
-            if i not in predictions_id:
-                predictions_id.append(i)
+        for i in range(len(title_array)):
+            if title_array[i] not in predictions_title:
+                predictions_title.append(title_array[i])
                 predictions_song.append(representations[i])
                 counts.append(1)
-            elif i in predictions_id:
-                index = predictions_id.index(i)
+            elif title_array[i] in predictions_title:
+                index = predictions_title.index(title_array[i] )
                 predictions_song[index] = predictions_song[index] + representations[i]
                 counts[index] = counts[index] + 1
         distance_array = self.cosine_similarity(prediction_anchor,predictions_song,counts)
-        return distance_array,predictions_id
+        return distance_array,predictions_title
 
     def create_prediction_anchor(self,fusion):
         prediction_anchor = np.zeros(np.shape(fusion[0]))
@@ -46,23 +47,34 @@ class Recommendation_V2:
         prediction_anchor/=len(fusion)
         return prediction_anchor
 
-    def recommendations_to_list(self,distance_array,title_array,predictions_id):
+    def recommendations_to_list(self,distance_array,predictions_title):
         rec = list()
-        for i in range(2):
+        for _ in range(3):
             index = np.argmax(distance_array)
             value = distance_array[index][0][0]
-            id = predictions_id[index]
-            title = title_array[id]
-            rec.append((id,title,value))
+            rec.append((predictions_title[index],value))
             distance_array[index] = -np.inf
         return rec
 
-    def generate_recommendation(self,music_file_path):
-        name = self.dm.get_file_name(music_file_path)[0]
+    def encode_spectrograms(self,music_file_path):
+        self.timer.startTimer()
         fusion = self.encode.encode(music_file_path)
-        self.database.connect_to_database()
-        title_array,representaions = self.database.read_database()
+        self.timer.endTimer()
+        self.timer.saveResults("Full encoding",'results.txt',False)
+        return fusion
+
+    def calculate_similarities(self,fusion,title_array,representations):
+        self.timer.startTimer()
         prediction_anchor = self.create_prediction_anchor(fusion)
-        distance_array, predictions_id = self.predict_songs(prediction_anchor,title_array,representaions)
-        return self.recommendations_to_list(distance_array,title_array,predictions_id)
+        distance_array, predictions_title = self.predict_songs(prediction_anchor,title_array,representations)
+        self.timer.endTimer()
+        self.timer.saveResults("Cosine similarity for every song",'results.txt',False)
+        return distance_array, predictions_title
+
+    def generate_recommendation(self,music_file_path):
+        fusion = self.encode_spectrograms(music_file_path)
+        self.database.connect_to_database()
+        title_array,representations = self.database.read_database()
+        distance_array, predictions_title = self.calculate_similarities(fusion,title_array,representations)
+        return self.recommendations_to_list(distance_array,predictions_title)
         

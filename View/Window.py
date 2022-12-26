@@ -11,14 +11,16 @@ from threading import Thread
 os.add_dll_directory(r'C:\Program Files\VideoLAN\VLC')
 import vlc
 from operator import itemgetter
+import warnings
+warnings.filterwarnings('ignore')
 
 class Window:
 
     def __init__(self) -> None:
         self.window = tk.Tk()
         self.style = ttk.Style()
-        self.window.geometry("1200x600")
-        self.window.minsize(1200,600)
+        self.window.geometry("1200x700")
+        self.window.minsize(1200,700)
         self.window.title("System for the recommendation of musical works")
         self.numpy = NumpyArray()
         self.p =vlc.MediaPlayer()
@@ -44,7 +46,7 @@ class Window:
     def create_widget(self,master,text):
 
         frame1 = ttk.Frame(master,style="RoundedFrame", padding=10)
-        text1 = tk.Text(frame1, borderwidth=0, highlightthickness=0, wrap="word",width=60, height=4,font=('Times',20),foreground="green")
+        text1 = tk.Text(frame1, borderwidth=0, highlightthickness=0, wrap="word",width=60, height=5,font=('Times',16),foreground="green")
         text1.pack(fill="both",side="top", expand=False)
         text1.bind("<FocusIn>", lambda event: frame1.state(["focus"]))
         text1.bind("<FocusOut>", lambda event: frame1.state(["!focus"]))
@@ -86,7 +88,10 @@ class Window:
     def recommendation_thread(self):
         list_array = self.controller.generate_recommendations(self.currentTrack)
         self.textBox2.delete(0.0,"end")
-        self.textBox2.insert("end",'Recommendation\n\n' +'Song: '+ list_array[0][1])
+        recommendations = ""
+        for rec in list_array:
+            recommendations+='Song: '+rec[0]+'\n'
+        self.textBox2.insert("end",'Recommendation\n\n' +recommendations)
 
     def recommendCallback(self):
         if not self.currentTrack == "":
@@ -96,11 +101,14 @@ class Window:
 
     def onselect(self,evt):
         w = evt.widget
-        index = int(w.curselection()[0])
-        self.currentTrack =  self.dm.get_track_by_ID('Spectrograms',self.test_list[index][0])
-        text=os.path.basename(self.currentTrack)
-        self.textBox1.delete(0.0,"end")
-        self.textBox1.insert("end",'Current Track\n\n' + text)
+        try:
+            index = int(w.curselection()[0])
+            self.currentTrack =  self.dm.get_track_by_ID('Spectrograms',self.test_list[index][0])
+            text=os.path.basename(self.currentTrack)
+            self.textBox1.delete(0.0,"end")
+            self.textBox1.insert("end",'Current Track\n\n' + text)
+        except:
+            pass
 
     def create_scrollable_list(self,n):
         
