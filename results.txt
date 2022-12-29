@@ -18,3 +18,11 @@ Full recommendation generation : 7340.111970901489 miliseconds
 
 Full recommendation generation : 7680.380344390869 miliseconds
 
+Full recommendation generation : 19671.09727859497 miliseconds
+
+Full recommendation generation : 20443.249702453613 miliseconds
+
+Full recommendation generation : 14575.033187866211 miliseconds
+
+Full recommendation generation : 18303.471088409424 miliseconds
+
