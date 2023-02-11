@@ -1,0 +1,14 @@
+{
+    "id": 62,
+    "filename": "073010.mp3",
+    "title": "Cumbia Chicana",
+    "samplefreq": 22050,
+    "sample_points": 4619520,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 4928.0,
+    "tuning": 0.0,
+    "duration": 209.50204081632654,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.846500039100647
+}

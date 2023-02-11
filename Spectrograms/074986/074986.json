@@ -1,0 +1,14 @@
+{
+    "id": 85,
+    "filename": "074986.mp3",
+    "title": "The Dead Show",
+    "samplefreq": 22050,
+    "sample_points": 4338432,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 5592.0,
+    "tuning": 0.06000000000000005,
+    "duration": 196.75428571428571,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.7384999990463257
+}

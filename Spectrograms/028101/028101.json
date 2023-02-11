@@ -1,0 +1,14 @@
+{
+    "id": 13,
+    "filename": "028101.mp3",
+    "title": "Alkan, 1ere Suite, Op 31, 5 Psaume 150me, Avec enthousiasme",
+    "samplefreq": 22050,
+    "sample_points": 2921184,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 1767.0,
+    "tuning": 0.010000000000000009,
+    "duration": 132.48,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.886299967765808
+}

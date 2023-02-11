@@ -1,0 +1,14 @@
+{
+    "id": 77,
+    "filename": "073392.mp3",
+    "title": "Zoolandia",
+    "samplefreq": 22050,
+    "sample_points": 6548850,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 3799.0,
+    "tuning": 0.49,
+    "duration": 297.0,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 2.470400094985962
+}

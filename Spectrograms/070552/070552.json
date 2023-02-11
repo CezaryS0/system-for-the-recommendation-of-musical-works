@@ -1,0 +1,14 @@
+{
+    "id": 60,
+    "filename": "070552.mp3",
+    "title": "You ask for Cornflakes, I give you Coffee & Cornflakes",
+    "samplefreq": 22050,
+    "sample_points": 6193404,
+    "tempo_bpm": 95.703125,
+    "rolloff_freq": 5209.0,
+    "tuning": 0.12,
+    "duration": 280.88,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.1540000438690186
+}

@@ -1,0 +1,14 @@
+{
+    "id": 30,
+    "filename": "032363.mp3",
+    "title": "Turks",
+    "samplefreq": 22050,
+    "sample_points": 3270162,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 6034.0,
+    "tuning": 0.17000000000000004,
+    "duration": 148.30666666666667,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 1.5214999914169312
+}

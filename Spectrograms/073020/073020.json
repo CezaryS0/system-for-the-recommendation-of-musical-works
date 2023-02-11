@@ -1,0 +1,14 @@
+{
+    "id": 67,
+    "filename": "073020.mp3",
+    "title": "04 Le Tourteau",
+    "samplefreq": 22050,
+    "sample_points": 2687040,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 4844.0,
+    "tuning": -0.44,
+    "duration": 121.86122448979592,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.8229000568389893
+}

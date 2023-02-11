@@ -1,0 +1,14 @@
+{
+    "id": 16,
+    "filename": "046016.mp3",
+    "title": "Widow Of My Dreams (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 5739073,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 3444.0,
+    "tuning": -0.08999999999999997,
+    "duration": 260.2754195011338,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.5865000486373901
+}

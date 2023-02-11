@@ -1,0 +1,14 @@
+{
+    "id": 25,
+    "filename": "031152.mp3",
+    "title": "Soak up the Sun",
+    "samplefreq": 22050,
+    "sample_points": 2882304,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 5466.0,
+    "tuning": 0.07000000000000006,
+    "duration": 130.71673469387756,
+    "tonic": "Eb",
+    "key_signature": "Eb Major",
+    "z_dist_avg_to_tonic": 1.5968999862670898
+}

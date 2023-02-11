@@ -1,0 +1,14 @@
+{
+    "id": 49,
+    "filename": "063196.mp3",
+    "title": "Speedy Ortiz",
+    "samplefreq": 22050,
+    "sample_points": 3176064,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4551.0,
+    "tuning": -0.010000000000000009,
+    "duration": 144.03918367346938,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 2.142699956893921
+}

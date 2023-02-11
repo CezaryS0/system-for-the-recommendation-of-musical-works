@@ -1,0 +1,14 @@
+{
+    "id": 30,
+    "filename": "046030.mp3",
+    "title": "In Offenburg [imitation_03]",
+    "samplefreq": 22050,
+    "sample_points": 3053376,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 6275.0,
+    "tuning": 0.0,
+    "duration": 138.47510204081632,
+    "tonic": "C#",
+    "key_signature": "C# Minor",
+    "z_dist_avg_to_tonic": 1.2792999744415283
+}

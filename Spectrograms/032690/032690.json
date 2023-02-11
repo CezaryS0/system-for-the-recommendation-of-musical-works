@@ -1,0 +1,14 @@
+{
+    "id": 32,
+    "filename": "032690.mp3",
+    "title": "Downtime",
+    "samplefreq": 22050,
+    "sample_points": 4065408,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 5670.0,
+    "tuning": 0.010000000000000009,
+    "duration": 184.37224489795918,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.4636000394821167
+}

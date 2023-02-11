@@ -1,0 +1,14 @@
+{
+    "id": 32,
+    "filename": "046032.mp3",
+    "title": "His Sister",
+    "samplefreq": 22050,
+    "sample_points": 9034560,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 7656.0,
+    "tuning": -0.32,
+    "duration": 409.73061224489794,
+    "tonic": "F",
+    "key_signature": "F Minor",
+    "z_dist_avg_to_tonic": 2.3108999729156494
+}

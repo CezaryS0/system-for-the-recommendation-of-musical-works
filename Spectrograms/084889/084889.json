@@ -1,0 +1,14 @@
+{
+    "id": 6,
+    "filename": "084889.mp3",
+    "title": "Earth Provides Enough to Satisfy Every Man's Need",
+    "samplefreq": 22050,
+    "sample_points": 4688064,
+    "tempo_bpm": 89.10290948275862,
+    "rolloff_freq": 2654.0,
+    "tuning": 0.020000000000000018,
+    "duration": 212.61061224489796,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 1.9782999753952026
+}

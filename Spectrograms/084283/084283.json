@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "filename": "084283.mp3",
+    "title": "I've Got A Gift",
+    "samplefreq": 22050,
+    "sample_points": 3921984,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 4483.0,
+    "tuning": 0.10999999999999999,
+    "duration": 177.8677551020408,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 2.291599988937378
+}

@@ -1,0 +1,14 @@
+{
+    "id": 45,
+    "filename": "043751.mp3",
+    "title": "Persistance",
+    "samplefreq": 22050,
+    "sample_points": 6219072,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 5832.0,
+    "tuning": 0.050000000000000044,
+    "duration": 282.04408163265305,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.9035999774932861
+}

@@ -1,0 +1,14 @@
+{
+    "id": 29,
+    "filename": "046029.mp3",
+    "title": "Lens",
+    "samplefreq": 22050,
+    "sample_points": 7112448,
+    "tempo_bpm": 73.828125,
+    "rolloff_freq": 1800.0,
+    "tuning": -0.16999999999999998,
+    "duration": 322.56,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.5244998931884766
+}

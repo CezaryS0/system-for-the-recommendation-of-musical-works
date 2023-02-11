@@ -1,0 +1,14 @@
+{
+    "id": 41,
+    "filename": "043041.mp3",
+    "title": "Blue Warriors",
+    "samplefreq": 22050,
+    "sample_points": 5690304,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 6920.0,
+    "tuning": 0.040000000000000036,
+    "duration": 258.06367346938777,
+    "tonic": "F",
+    "key_signature": "F Major",
+    "z_dist_avg_to_tonic": 1.9592000246047974
+}

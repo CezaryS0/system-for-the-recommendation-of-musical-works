@@ -1,0 +1,14 @@
+{
+    "id": 44,
+    "filename": "046044.mp3",
+    "title": "Cogito Err",
+    "samplefreq": 22050,
+    "sample_points": 9524736,
+    "tempo_bpm": 161.4990234375,
+    "rolloff_freq": 5529.0,
+    "tuning": -0.43,
+    "duration": 431.9608163265306,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 1.8544000387191772
+}

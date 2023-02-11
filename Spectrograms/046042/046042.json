@@ -1,0 +1,14 @@
+{
+    "id": 42,
+    "filename": "046042.mp3",
+    "title": "Das Lichtmikroskop",
+    "samplefreq": 22050,
+    "sample_points": 4514112,
+    "tempo_bpm": 172.265625,
+    "rolloff_freq": 4452.0,
+    "tuning": 0.09999999999999998,
+    "duration": 204.72163265306122,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.6711000204086304
+}

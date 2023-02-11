@@ -1,0 +1,14 @@
+{
+    "id": 74,
+    "filename": "073360.mp3",
+    "title": "2",
+    "samplefreq": 22050,
+    "sample_points": 26554752,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 2594.0,
+    "tuning": -0.35,
+    "duration": 1204.297142857143,
+    "tonic": "C#",
+    "key_signature": "C# Major",
+    "z_dist_avg_to_tonic": 1.8844000101089478
+}

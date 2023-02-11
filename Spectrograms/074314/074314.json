@@ -1,0 +1,14 @@
+{
+    "id": 80,
+    "filename": "074314.mp3",
+    "title": "The World Without End",
+    "samplefreq": 22050,
+    "sample_points": 2271150,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 6208.0,
+    "tuning": 0.0,
+    "duration": 103.0,
+    "tonic": "F",
+    "key_signature": "F Minor",
+    "z_dist_avg_to_tonic": 2.4870998859405518
+}

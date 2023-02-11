@@ -1,0 +1,14 @@
+{
+    "id": 34,
+    "filename": "046034.mp3",
+    "title": "laque",
+    "samplefreq": 22050,
+    "sample_points": 5717952,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4768.0,
+    "tuning": 0.47,
+    "duration": 259.3175510204082,
+    "tonic": "Ab",
+    "key_signature": "Ab Minor",
+    "z_dist_avg_to_tonic": 2.440500020980835
+}

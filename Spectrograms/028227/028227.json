@@ -1,0 +1,14 @@
+{
+    "id": 14,
+    "filename": "028227.mp3",
+    "title": "It's Tragedy We're Making",
+    "samplefreq": 22050,
+    "sample_points": 4372416,
+    "tempo_bpm": 78.30255681818181,
+    "rolloff_freq": 5205.0,
+    "tuning": 0.20999999999999996,
+    "duration": 198.29551020408164,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 2.34689998626709
+}

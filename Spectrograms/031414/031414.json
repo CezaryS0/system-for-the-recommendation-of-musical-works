@@ -1,0 +1,14 @@
+{
+    "id": 26,
+    "filename": "031414.mp3",
+    "title": "Grey Coat",
+    "samplefreq": 22050,
+    "sample_points": 1993536,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4593.0,
+    "tuning": -0.16999999999999998,
+    "duration": 90.40979591836735,
+    "tonic": "C#",
+    "key_signature": "C# Minor",
+    "z_dist_avg_to_tonic": 2.2437000274658203
+}

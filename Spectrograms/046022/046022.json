@@ -1,0 +1,14 @@
+{
+    "id": 22,
+    "filename": "046022.mp3",
+    "title": "Standards (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 3048118,
+    "tempo_bpm": 92.28515625,
+    "rolloff_freq": 3492.0,
+    "tuning": 0.030000000000000027,
+    "duration": 138.2366439909297,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.4881000518798828
+}

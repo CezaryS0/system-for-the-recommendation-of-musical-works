@@ -1,0 +1,14 @@
+{
+    "id": 15,
+    "filename": "028393.mp3",
+    "title": "Rusty Radar Operator With Piano In His Head",
+    "samplefreq": 22050,
+    "sample_points": 5222016,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 941.0,
+    "tuning": 0.13,
+    "duration": 236.8261224489796,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.567500114440918
+}

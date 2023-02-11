@@ -1,0 +1,14 @@
+{
+    "id": 72,
+    "filename": "073345.mp3",
+    "title": "Pretty One",
+    "samplefreq": 22050,
+    "sample_points": 9975988,
+    "tempo_bpm": 95.703125,
+    "rolloff_freq": 2531.0,
+    "tuning": -0.03999999999999998,
+    "duration": 452.4257596371882,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 2.118499994277954
+}

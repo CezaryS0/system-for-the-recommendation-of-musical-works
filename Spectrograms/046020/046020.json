@@ -1,0 +1,14 @@
+{
+    "id": 20,
+    "filename": "046020.mp3",
+    "title": "I Can't Lose (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 4721969,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 3557.0,
+    "tuning": -0.010000000000000009,
+    "duration": 214.14825396825398,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.502700090408325
+}

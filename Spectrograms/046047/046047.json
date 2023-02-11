@@ -1,0 +1,14 @@
+{
+    "id": 47,
+    "filename": "046047.mp3",
+    "title": "The Principle of gRey",
+    "samplefreq": 22050,
+    "sample_points": 3830976,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 7400.0,
+    "tuning": 0.10999999999999999,
+    "duration": 173.7404081632653,
+    "tonic": "C#",
+    "key_signature": "C# Major",
+    "z_dist_avg_to_tonic": 2.5013999938964844
+}

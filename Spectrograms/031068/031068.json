@@ -1,0 +1,14 @@
+{
+    "id": 24,
+    "filename": "031068.mp3",
+    "title": "Psicofonia - Deloise remix",
+    "samplefreq": 22050,
+    "sample_points": 6732864,
+    "tempo_bpm": 92.28515625,
+    "rolloff_freq": 7742.0,
+    "tuning": -0.15999999999999998,
+    "duration": 305.34530612244896,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.8914999961853027
+}

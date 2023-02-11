@@ -1,0 +1,14 @@
+{
+    "id": 50,
+    "filename": "046050.mp3",
+    "title": "Loophole",
+    "samplefreq": 22050,
+    "sample_points": 6454080,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 2512.0,
+    "tuning": -0.47,
+    "duration": 292.70204081632653,
+    "tonic": "C",
+    "key_signature": "C Minor",
+    "z_dist_avg_to_tonic": 1.8594000339508057
+}

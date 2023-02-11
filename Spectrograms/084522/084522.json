@@ -1,0 +1,14 @@
+{
+    "id": 3,
+    "filename": "084522.mp3",
+    "title": "Quisas",
+    "samplefreq": 22050,
+    "sample_points": 13574016,
+    "tempo_bpm": 95.703125,
+    "rolloff_freq": 4593.0,
+    "tuning": 0.050000000000000044,
+    "duration": 615.6016326530612,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.6301000118255615
+}

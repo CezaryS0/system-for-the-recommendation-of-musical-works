@@ -1,0 +1,14 @@
+{
+    "id": 39,
+    "filename": "046039.mp3",
+    "title": "Sink (my heart)",
+    "samplefreq": 22050,
+    "sample_points": 2231424,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 2706.0,
+    "tuning": 0.050000000000000044,
+    "duration": 101.19836734693878,
+    "tonic": "Eb",
+    "key_signature": "Eb Minor",
+    "z_dist_avg_to_tonic": 2.625699996948242
+}

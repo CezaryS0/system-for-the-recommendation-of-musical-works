@@ -1,0 +1,14 @@
+{
+    "id": 33,
+    "filename": "033024.mp3",
+    "title": "Who We Used To Be",
+    "samplefreq": 22050,
+    "sample_points": 9789696,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 5756.0,
+    "tuning": 0.030000000000000027,
+    "duration": 443.97714285714284,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 2.351799964904785
+}

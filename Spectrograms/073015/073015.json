@@ -1,0 +1,14 @@
+{
+    "id": 65,
+    "filename": "073015.mp3",
+    "title": "Ultra Swing",
+    "samplefreq": 22050,
+    "sample_points": 3671424,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 4352.0,
+    "tuning": -0.020000000000000018,
+    "duration": 166.50448979591837,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 1.420300006866455
+}

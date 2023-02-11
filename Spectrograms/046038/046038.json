@@ -1,0 +1,14 @@
+{
+    "id": 38,
+    "filename": "046038.mp3",
+    "title": "Gaia",
+    "samplefreq": 22050,
+    "sample_points": 7532928,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 1094.0,
+    "tuning": 0.41000000000000003,
+    "duration": 341.629387755102,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 1.4035999774932861
+}

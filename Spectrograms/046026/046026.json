@@ -1,0 +1,14 @@
+{
+    "id": 26,
+    "filename": "046026.mp3",
+    "title": "I Want Results",
+    "samplefreq": 22050,
+    "sample_points": 5089984,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 3173.0,
+    "tuning": 0.050000000000000044,
+    "duration": 230.83827664399092,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 2.0185000896453857
+}

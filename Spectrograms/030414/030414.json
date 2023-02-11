@@ -1,0 +1,14 @@
+{
+    "id": 21,
+    "filename": "030414.mp3",
+    "title": "I Wanna Go to Bay Ridge",
+    "samplefreq": 22050,
+    "sample_points": 1751616,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4269.0,
+    "tuning": -0.10999999999999999,
+    "duration": 79.43836734693878,
+    "tonic": "C",
+    "key_signature": "C Major",
+    "z_dist_avg_to_tonic": 2.2327001094818115
+}

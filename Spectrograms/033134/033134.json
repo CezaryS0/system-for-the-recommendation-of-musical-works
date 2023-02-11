@@ -1,0 +1,14 @@
+{
+    "id": 35,
+    "filename": "033134.mp3",
+    "title": "Hands to the Ground",
+    "samplefreq": 22050,
+    "sample_points": 4261824,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 6099.0,
+    "tuning": 0.06000000000000005,
+    "duration": 193.28,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 2.0048000812530518
+}

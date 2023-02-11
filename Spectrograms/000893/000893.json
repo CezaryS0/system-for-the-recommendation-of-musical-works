@@ -1,0 +1,14 @@
+{
+    "id": 6,
+    "filename": "000893.mp3",
+    "title": "The Gathering",
+    "samplefreq": 22050,
+    "sample_points": 9835200,
+    "tempo_bpm": 103.359375,
+    "rolloff_freq": 2265.0,
+    "tuning": 0.030000000000000027,
+    "duration": 446.0408163265306,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 2.2337000370025635
+}

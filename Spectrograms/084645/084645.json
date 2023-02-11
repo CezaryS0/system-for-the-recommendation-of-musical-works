@@ -1,0 +1,14 @@
+{
+    "id": 4,
+    "filename": "084645.mp3",
+    "title": "Karma Is a Bleach (instr.)",
+    "samplefreq": 22050,
+    "sample_points": 7938000,
+    "tempo_bpm": 172.265625,
+    "rolloff_freq": 5528.0,
+    "tuning": 0.0,
+    "duration": 360.0,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 2.3385000228881836
+}

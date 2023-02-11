@@ -1,0 +1,14 @@
+{
+    "id": 8,
+    "filename": "022024.mp3",
+    "title": "Yesterday Remix",
+    "samplefreq": 22050,
+    "sample_points": 5637888,
+    "tempo_bpm": 172.265625,
+    "rolloff_freq": 4702.0,
+    "tuning": 0.030000000000000027,
+    "duration": 255.6865306122449,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 2.5947999954223633
+}

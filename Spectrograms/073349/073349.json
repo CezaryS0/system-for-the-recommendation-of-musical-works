@@ -1,0 +1,14 @@
+{
+    "id": 73,
+    "filename": "073349.mp3",
+    "title": "In the Pines",
+    "samplefreq": 22050,
+    "sample_points": 14868864,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 1743.0,
+    "tuning": 0.050000000000000044,
+    "duration": 674.3248979591837,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.9957000017166138
+}

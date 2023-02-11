@@ -1,0 +1,14 @@
+{
+    "id": 71,
+    "filename": "073091.mp3",
+    "title": "Achteruitman",
+    "samplefreq": 22050,
+    "sample_points": 6785856,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 2416.0,
+    "tuning": -0.2,
+    "duration": 307.74857142857144,
+    "tonic": "Bb",
+    "key_signature": "Bb Major",
+    "z_dist_avg_to_tonic": 1.8502000570297241
+}

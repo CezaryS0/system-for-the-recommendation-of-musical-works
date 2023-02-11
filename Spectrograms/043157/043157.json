@@ -1,0 +1,14 @@
+{
+    "id": 42,
+    "filename": "043157.mp3",
+    "title": "Caminata (Original Mix)",
+    "samplefreq": 22050,
+    "sample_points": 12742848,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 6360.0,
+    "tuning": 0.040000000000000036,
+    "duration": 577.9069387755102,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.1052000522613525
+}

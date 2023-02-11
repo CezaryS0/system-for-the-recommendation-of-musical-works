@@ -1,0 +1,14 @@
+{
+    "id": 9,
+    "filename": "022071.mp3",
+    "title": "Wat Heb Je Gedaan?",
+    "samplefreq": 22050,
+    "sample_points": 3983040,
+    "tempo_bpm": 89.10290948275862,
+    "rolloff_freq": 5003.0,
+    "tuning": 0.06000000000000005,
+    "duration": 180.63673469387754,
+    "tonic": "C",
+    "key_signature": "C Major",
+    "z_dist_avg_to_tonic": 2.328700065612793
+}

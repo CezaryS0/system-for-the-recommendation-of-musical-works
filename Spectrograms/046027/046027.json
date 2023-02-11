@@ -1,0 +1,14 @@
+{
+    "id": 27,
+    "filename": "046027.mp3",
+    "title": "Y03M02D12",
+    "samplefreq": 22050,
+    "sample_points": 3566016,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 7572.0,
+    "tuning": 0.040000000000000036,
+    "duration": 161.72408163265305,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 1.924299955368042
+}

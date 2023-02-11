@@ -1,0 +1,14 @@
+{
+    "id": 25,
+    "filename": "046025.mp3",
+    "title": "Talking To The Dog",
+    "samplefreq": 22050,
+    "sample_points": 3258369,
+    "tempo_bpm": 161.4990234375,
+    "rolloff_freq": 3329.0,
+    "tuning": -0.020000000000000018,
+    "duration": 147.77183673469386,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 1.8658000230789185
+}

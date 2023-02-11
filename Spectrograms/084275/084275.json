@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "filename": "084275.mp3",
+    "title": "He Sang Of The Sea Folk",
+    "samplefreq": 22050,
+    "sample_points": 5954688,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4562.0,
+    "tuning": 0.020000000000000018,
+    "duration": 270.05387755102043,
+    "tonic": "Ab",
+    "key_signature": "Ab Minor",
+    "z_dist_avg_to_tonic": 1.999400019645691
+}

@@ -1,0 +1,14 @@
+{
+    "id": 21,
+    "filename": "046021.mp3",
+    "title": "No Fly List (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 3405679,
+    "tempo_bpm": 172.265625,
+    "rolloff_freq": 3347.0,
+    "tuning": 0.030000000000000027,
+    "duration": 154.45256235827665,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 1.860200047492981
+}

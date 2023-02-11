@@ -1,0 +1,14 @@
+{
+    "id": 83,
+    "filename": "074855.mp3",
+    "title": "Take Me Home",
+    "samplefreq": 22050,
+    "sample_points": 4139136,
+    "tempo_bpm": 161.4990234375,
+    "rolloff_freq": 5915.0,
+    "tuning": 0.010000000000000009,
+    "duration": 187.71591836734694,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 1.9057999849319458
+}

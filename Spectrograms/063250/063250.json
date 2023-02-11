@@ -1,0 +1,14 @@
+{
+    "id": 50,
+    "filename": "063250.mp3",
+    "title": "Out of Turn",
+    "samplefreq": 22050,
+    "sample_points": 7576128,
+    "tempo_bpm": 80.74951171875,
+    "rolloff_freq": 2618.0,
+    "tuning": 0.040000000000000036,
+    "duration": 343.5885714285714,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 2.272599935531616
+}

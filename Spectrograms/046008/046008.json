@@ -1,0 +1,14 @@
+{
+    "id": 8,
+    "filename": "046008.mp3",
+    "title": "From the aquarium",
+    "samplefreq": 22050,
+    "sample_points": 3009600,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4778.0,
+    "tuning": 0.17000000000000004,
+    "duration": 136.48979591836735,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.9630000591278076
+}

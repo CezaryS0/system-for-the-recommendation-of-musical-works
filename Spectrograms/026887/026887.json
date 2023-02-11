@@ -1,0 +1,14 @@
+{
+    "id": 11,
+    "filename": "026887.mp3",
+    "title": "Leather Bat",
+    "samplefreq": 22050,
+    "sample_points": 3598272,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 5211.0,
+    "tuning": 0.010000000000000009,
+    "duration": 163.1869387755102,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 2.2757999897003174
+}

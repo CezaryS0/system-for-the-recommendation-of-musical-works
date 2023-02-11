@@ -1,0 +1,14 @@
+{
+    "id": 48,
+    "filename": "063031.mp3",
+    "title": "Nothing",
+    "samplefreq": 22050,
+    "sample_points": 3862885,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 3772.0,
+    "tuning": 0.13,
+    "duration": 175.1875283446712,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 2.656899929046631
+}

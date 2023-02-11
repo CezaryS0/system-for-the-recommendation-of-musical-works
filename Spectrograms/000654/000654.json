@@ -1,0 +1,14 @@
+{
+    "id": 3,
+    "filename": "000654.mp3",
+    "title": "Side Three - Part Four",
+    "samplefreq": 22050,
+    "sample_points": 3970368,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4837.0,
+    "tuning": 0.15000000000000002,
+    "duration": 180.06204081632654,
+    "tonic": "C",
+    "key_signature": "C Minor",
+    "z_dist_avg_to_tonic": 2.3050999641418457
+}

@@ -1,0 +1,14 @@
+{
+    "id": 4,
+    "filename": "000806.mp3",
+    "title": "Hello from Ohio",
+    "samplefreq": 22050,
+    "sample_points": 5131008,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 4934.0,
+    "tuning": 0.0,
+    "duration": 232.6987755102041,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.6431000232696533
+}

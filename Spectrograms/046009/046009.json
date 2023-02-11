@@ -1,0 +1,14 @@
+{
+    "id": 9,
+    "filename": "046009.mp3",
+    "title": "dada sutra",
+    "samplefreq": 22050,
+    "sample_points": 4086144,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 5533.0,
+    "tuning": -0.24,
+    "duration": 185.3126530612245,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 0.9771999716758728
+}

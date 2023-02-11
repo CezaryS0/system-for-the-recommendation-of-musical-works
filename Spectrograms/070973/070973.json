@@ -1,0 +1,14 @@
+{
+    "id": 61,
+    "filename": "070973.mp3",
+    "title": "Ferromagnetic Fawn",
+    "samplefreq": 22050,
+    "sample_points": 5458757,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4918.0,
+    "tuning": -0.5,
+    "duration": 247.56267573696144,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 1.7201999425888062
+}

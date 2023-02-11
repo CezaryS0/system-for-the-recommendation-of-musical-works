@@ -1,0 +1,14 @@
+{
+    "id": 5,
+    "filename": "084758.mp3",
+    "title": "Hare Tarot Lies",
+    "samplefreq": 22050,
+    "sample_points": 4154688,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 4407.0,
+    "tuning": 0.07999999999999996,
+    "duration": 188.42122448979592,
+    "tonic": "C#",
+    "key_signature": "C# Major",
+    "z_dist_avg_to_tonic": 2.3429999351501465
+}

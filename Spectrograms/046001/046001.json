@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "filename": "046001.mp3",
+    "title": "Les pleureuses assyriennes",
+    "samplefreq": 22050,
+    "sample_points": 8381376,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4045.0,
+    "tuning": -0.020000000000000018,
+    "duration": 380.1077551020408,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.5225000381469727
+}

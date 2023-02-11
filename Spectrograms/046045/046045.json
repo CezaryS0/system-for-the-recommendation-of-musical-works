@@ -1,0 +1,14 @@
+{
+    "id": 45,
+    "filename": "046045.mp3",
+    "title": "phuffy hance",
+    "samplefreq": 22050,
+    "sample_points": 2813760,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 6322.0,
+    "tuning": 0.49,
+    "duration": 127.60816326530612,
+    "tonic": "Eb",
+    "key_signature": "Eb Minor",
+    "z_dist_avg_to_tonic": 1.103700041770935
+}

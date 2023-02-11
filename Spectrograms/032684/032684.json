@@ -1,0 +1,14 @@
+{
+    "id": 31,
+    "filename": "032684.mp3",
+    "title": "Rio Grande",
+    "samplefreq": 22050,
+    "sample_points": 3528576,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 4714.0,
+    "tuning": 0.050000000000000044,
+    "duration": 160.02612244897958,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 1.9328999519348145
+}

@@ -1,0 +1,14 @@
+{
+    "id": 46,
+    "filename": "046046.mp3",
+    "title": "Homem X M\u00e1quina",
+    "samplefreq": 22050,
+    "sample_points": 10274112,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 3167.0,
+    "tuning": 0.17000000000000004,
+    "duration": 465.94612244897957,
+    "tonic": "Ab",
+    "key_signature": "Ab Major",
+    "z_dist_avg_to_tonic": 2.1742000579833984
+}

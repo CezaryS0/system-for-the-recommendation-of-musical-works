@@ -1,0 +1,14 @@
+{
+    "id": 15,
+    "filename": "046015.mp3",
+    "title": "New August (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 5077851,
+    "tempo_bpm": 103.359375,
+    "rolloff_freq": 3432.0,
+    "tuning": -0.020000000000000018,
+    "duration": 230.28802721088437,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.162100076675415
+}

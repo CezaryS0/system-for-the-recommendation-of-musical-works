@@ -1,0 +1,14 @@
+{
+    "id": 44,
+    "filename": "043490.mp3",
+    "title": "Ignition, Set, GO!",
+    "samplefreq": 22050,
+    "sample_points": 6859008,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 7352.0,
+    "tuning": 0.010000000000000009,
+    "duration": 311.06612244897957,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 2.057499885559082
+}

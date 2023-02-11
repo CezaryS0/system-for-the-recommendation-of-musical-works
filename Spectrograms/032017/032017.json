@@ -1,0 +1,14 @@
+{
+    "id": 28,
+    "filename": "032017.mp3",
+    "title": "Control",
+    "samplefreq": 22050,
+    "sample_points": 4780224,
+    "tempo_bpm": 99.38401442307692,
+    "rolloff_freq": 4314.0,
+    "tuning": 0.06000000000000005,
+    "duration": 216.79020408163265,
+    "tonic": "Ab",
+    "key_signature": "Ab Minor",
+    "z_dist_avg_to_tonic": 2.410799980163574
+}

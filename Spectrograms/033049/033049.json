@@ -1,0 +1,14 @@
+{
+    "id": 34,
+    "filename": "033049.mp3",
+    "title": "Carnival",
+    "samplefreq": 22050,
+    "sample_points": 4855680,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 1235.0,
+    "tuning": 0.16000000000000003,
+    "duration": 220.21224489795918,
+    "tonic": "Bb",
+    "key_signature": "Bb Major",
+    "z_dist_avg_to_tonic": 1.9738999605178833
+}

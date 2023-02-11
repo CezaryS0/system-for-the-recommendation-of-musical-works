@@ -1,0 +1,14 @@
+{
+    "id": 19,
+    "filename": "046019.mp3",
+    "title": "Milk Cow Blues (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 6845061,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 3345.0,
+    "tuning": 0.010000000000000009,
+    "duration": 310.4336054421769,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.9147000312805176
+}

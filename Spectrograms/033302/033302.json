@@ -1,0 +1,14 @@
+{
+    "id": 37,
+    "filename": "033302.mp3",
+    "title": "I Find Your Warmth Infectious",
+    "samplefreq": 22050,
+    "sample_points": 5977152,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 837.0,
+    "tuning": 0.040000000000000036,
+    "duration": 271.0726530612245,
+    "tonic": "C#",
+    "key_signature": "C# Minor",
+    "z_dist_avg_to_tonic": 2.6805999279022217
+}

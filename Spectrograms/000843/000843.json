@@ -1,0 +1,14 @@
+{
+    "id": 5,
+    "filename": "000843.mp3",
+    "title": "Today",
+    "samplefreq": 22050,
+    "sample_points": 7621056,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 4986.0,
+    "tuning": 0.07999999999999996,
+    "duration": 345.6261224489796,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 1.7513999938964844
+}

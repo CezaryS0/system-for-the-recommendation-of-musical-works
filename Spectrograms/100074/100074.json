@@ -1,0 +1,14 @@
+{
+    "id": 14,
+    "filename": "100074.mp3",
+    "title": "Cartilage Twist",
+    "samplefreq": 22050,
+    "sample_points": 9741762,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 3923.0,
+    "tuning": -0.13,
+    "duration": 441.80326530612246,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.4499000310897827
+}

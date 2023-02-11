@@ -1,0 +1,14 @@
+{
+    "id": 51,
+    "filename": "063433.mp3",
+    "title": "Puritan Devil Ham",
+    "samplefreq": 22050,
+    "sample_points": 1380096,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 4436.0,
+    "tuning": 0.07000000000000006,
+    "duration": 62.58938775510204,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.7742999792099
+}

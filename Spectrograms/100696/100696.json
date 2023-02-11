@@ -1,0 +1,14 @@
+{
+    "id": 15,
+    "filename": "100696.mp3",
+    "title": "Dock",
+    "samplefreq": 22050,
+    "sample_points": 4075858,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 5079.0,
+    "tuning": 0.07000000000000006,
+    "duration": 184.84616780045351,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 1.6898000240325928
+}

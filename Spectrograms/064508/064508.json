@@ -1,0 +1,14 @@
+{
+    "id": 58,
+    "filename": "064508.mp3",
+    "title": "Come to Me",
+    "samplefreq": 22050,
+    "sample_points": 7462656,
+    "tempo_bpm": 95.703125,
+    "rolloff_freq": 2748.0,
+    "tuning": -0.14999999999999997,
+    "duration": 338.44244897959186,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 1.4062000513076782
+}

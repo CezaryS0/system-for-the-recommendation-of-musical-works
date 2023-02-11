@@ -1,0 +1,14 @@
+{
+    "id": 20,
+    "filename": "030241.mp3",
+    "title": "94",
+    "samplefreq": 22050,
+    "sample_points": 4229190,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 4133.0,
+    "tuning": 0.24,
+    "duration": 191.8,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 2.067699909210205
+}

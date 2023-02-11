@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "filename": "000463.mp3",
+    "title": "I'll Be Blue",
+    "samplefreq": 22050,
+    "sample_points": 4955328,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4422.0,
+    "tuning": -0.020000000000000018,
+    "duration": 224.73142857142858,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.7871999740600586
+}

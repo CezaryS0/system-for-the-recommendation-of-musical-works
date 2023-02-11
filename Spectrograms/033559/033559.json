@@ -1,0 +1,14 @@
+{
+    "id": 39,
+    "filename": "033559.mp3",
+    "title": "Scream Out (Featuring Braintrust)",
+    "samplefreq": 22050,
+    "sample_points": 6174000,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 5876.0,
+    "tuning": 0.050000000000000044,
+    "duration": 280.0,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.8521000146865845
+}

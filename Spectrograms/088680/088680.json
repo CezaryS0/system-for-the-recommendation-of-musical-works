@@ -1,0 +1,14 @@
+{
+    "id": 12,
+    "filename": "088680.mp3",
+    "title": "Whispering Oranges",
+    "samplefreq": 22050,
+    "sample_points": 4093056,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 3044.0,
+    "tuning": 0.13,
+    "duration": 185.6261224489796,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 1.9747999906539917
+}

@@ -1,0 +1,14 @@
+{
+    "id": 64,
+    "filename": "073014.mp3",
+    "title": "Est ce que \u00e7a vous plait?",
+    "samplefreq": 22050,
+    "sample_points": 4631040,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4772.0,
+    "tuning": 0.050000000000000044,
+    "duration": 210.02448979591836,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 2.0559000968933105
+}

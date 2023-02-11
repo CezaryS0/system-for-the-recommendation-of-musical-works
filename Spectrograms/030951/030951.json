@@ -1,0 +1,14 @@
+{
+    "id": 22,
+    "filename": "030951.mp3",
+    "title": "She's A Little Angel",
+    "samplefreq": 22050,
+    "sample_points": 1319616,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4694.0,
+    "tuning": -0.39,
+    "duration": 59.8465306122449,
+    "tonic": "Ab",
+    "key_signature": "Ab Minor",
+    "z_dist_avg_to_tonic": 1.2926000356674194
+}

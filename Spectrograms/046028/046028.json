@@ -1,0 +1,14 @@
+{
+    "id": 28,
+    "filename": "046028.mp3",
+    "title": "opening the 2nd chakra",
+    "samplefreq": 22050,
+    "sample_points": 10595520,
+    "tempo_bpm": 46.142578125,
+    "rolloff_freq": 288.0,
+    "tuning": -0.15999999999999998,
+    "duration": 480.52244897959184,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.8859000205993652
+}

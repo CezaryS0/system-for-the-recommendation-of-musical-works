@@ -1,0 +1,14 @@
+{
+    "id": 0,
+    "filename": "084190.mp3",
+    "title": "Surreal Realms",
+    "samplefreq": 22050,
+    "sample_points": 9760320,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 3993.0,
+    "tuning": 0.06000000000000005,
+    "duration": 442.64489795918365,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 2.293299913406372
+}

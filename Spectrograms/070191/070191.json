@@ -1,0 +1,14 @@
+{
+    "id": 59,
+    "filename": "070191.mp3",
+    "title": "Candy Bar",
+    "samplefreq": 22050,
+    "sample_points": 2578176,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 5221.0,
+    "tuning": 0.040000000000000036,
+    "duration": 116.92408163265306,
+    "tonic": "C",
+    "key_signature": "C Major",
+    "z_dist_avg_to_tonic": 1.4507999420166016
+}

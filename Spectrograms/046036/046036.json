@@ -1,0 +1,14 @@
+{
+    "id": 36,
+    "filename": "046036.mp3",
+    "title": "Babel",
+    "samplefreq": 22050,
+    "sample_points": 3550464,
+    "tempo_bpm": 86.1328125,
+    "rolloff_freq": 3788.0,
+    "tuning": 0.06000000000000005,
+    "duration": 161.01877551020408,
+    "tonic": "Ab",
+    "key_signature": "Ab Major",
+    "z_dist_avg_to_tonic": 1.3839000463485718
+}

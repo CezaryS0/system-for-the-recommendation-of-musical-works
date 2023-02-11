@@ -1,0 +1,14 @@
+{
+    "id": 29,
+    "filename": "032057.mp3",
+    "title": "Easybeats",
+    "samplefreq": 22050,
+    "sample_points": 7152192,
+    "tempo_bpm": 99.38401442307692,
+    "rolloff_freq": 6314.0,
+    "tuning": -0.010000000000000009,
+    "duration": 324.3624489795918,
+    "tonic": "F",
+    "key_signature": "F Major",
+    "z_dist_avg_to_tonic": 2.722599983215332
+}

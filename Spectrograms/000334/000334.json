@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "filename": "000334.mp3",
+    "title": "Blahpunk",
+    "samplefreq": 22050,
+    "sample_points": 6070464,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 3250.0,
+    "tuning": -0.49,
+    "duration": 275.30448979591836,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.245500087738037
+}

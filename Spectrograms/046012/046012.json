@@ -1,0 +1,14 @@
+{
+    "id": 12,
+    "filename": "046012.mp3",
+    "title": "SUD (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 5726878,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 3325.0,
+    "tuning": 0.010000000000000009,
+    "duration": 259.722358276644,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 2.8603999614715576
+}

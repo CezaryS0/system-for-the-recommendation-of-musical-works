@@ -1,0 +1,14 @@
+{
+    "id": 17,
+    "filename": "030059.mp3",
+    "title": "MC Cullah's Guitar",
+    "samplefreq": 22050,
+    "sample_points": 3370752,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 5913.0,
+    "tuning": -0.13,
+    "duration": 152.86857142857144,
+    "tonic": "F",
+    "key_signature": "F Minor",
+    "z_dist_avg_to_tonic": 1.892699956893921
+}

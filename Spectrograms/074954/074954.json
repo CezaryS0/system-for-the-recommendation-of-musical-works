@@ -1,0 +1,14 @@
+{
+    "id": 84,
+    "filename": "074954.mp3",
+    "title": "(Robot) House Music",
+    "samplefreq": 22050,
+    "sample_points": 4256450,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 6361.0,
+    "tuning": 0.0,
+    "duration": 193.0362811791383,
+    "tonic": "A",
+    "key_signature": "A Major",
+    "z_dist_avg_to_tonic": 2.110599994659424
+}

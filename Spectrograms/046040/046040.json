@@ -1,0 +1,14 @@
+{
+    "id": 40,
+    "filename": "046040.mp3",
+    "title": "34\u00b0 18\u2032 38.56\u2033 N, 24\u00b0 27\u2032 04.15\u2033 W",
+    "samplefreq": 22050,
+    "sample_points": 6572160,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 2579.0,
+    "tuning": 0.020000000000000018,
+    "duration": 298.0571428571429,
+    "tonic": "C",
+    "key_signature": "C Major",
+    "z_dist_avg_to_tonic": 2.924999952316284
+}

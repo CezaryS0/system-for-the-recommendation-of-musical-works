@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "filename": "046002.mp3",
+    "title": "Zahnspange",
+    "samplefreq": 22050,
+    "sample_points": 2646720,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 7500.0,
+    "tuning": -0.22999999999999998,
+    "duration": 120.0326530612245,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 1.8061000108718872
+}

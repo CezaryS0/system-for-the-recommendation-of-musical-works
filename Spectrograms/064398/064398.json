@@ -1,0 +1,14 @@
+{
+    "id": 56,
+    "filename": "064398.mp3",
+    "title": "Love Champion",
+    "samplefreq": 22050,
+    "sample_points": 2964672,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4706.0,
+    "tuning": 0.24,
+    "duration": 134.4522448979592,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.6425000429153442
+}

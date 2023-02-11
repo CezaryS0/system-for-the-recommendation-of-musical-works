@@ -1,0 +1,14 @@
+{
+    "id": 12,
+    "filename": "026958.mp3",
+    "title": "Break the Silence",
+    "samplefreq": 22050,
+    "sample_points": 5793984,
+    "tempo_bpm": 69.83741554054055,
+    "rolloff_freq": 2608.0,
+    "tuning": 0.09999999999999998,
+    "duration": 262.7657142857143,
+    "tonic": "Eb",
+    "key_signature": "Eb Minor",
+    "z_dist_avg_to_tonic": 1.4752000570297241
+}

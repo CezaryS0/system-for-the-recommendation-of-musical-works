@@ -1,0 +1,14 @@
+{
+    "id": 10,
+    "filename": "046010.mp3",
+    "title": "The truth is in control",
+    "samplefreq": 22050,
+    "sample_points": 3185280,
+    "tempo_bpm": 83.35433467741936,
+    "rolloff_freq": 5853.0,
+    "tuning": -0.42,
+    "duration": 144.45714285714286,
+    "tonic": "Eb",
+    "key_signature": "Eb Minor",
+    "z_dist_avg_to_tonic": 1.907099962234497
+}

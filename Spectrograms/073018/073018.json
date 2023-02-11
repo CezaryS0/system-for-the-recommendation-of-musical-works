@@ -1,0 +1,14 @@
+{
+    "id": 66,
+    "filename": "073018.mp3",
+    "title": "02 Deep Purcell's war",
+    "samplefreq": 22050,
+    "sample_points": 2780352,
+    "tempo_bpm": 107.666015625,
+    "rolloff_freq": 4694.0,
+    "tuning": 0.040000000000000036,
+    "duration": 126.0930612244898,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.8169000148773193
+}

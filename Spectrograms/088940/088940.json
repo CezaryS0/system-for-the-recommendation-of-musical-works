@@ -1,0 +1,14 @@
+{
+    "id": 13,
+    "filename": "088940.mp3",
+    "title": "Civil Disobedience",
+    "samplefreq": 22050,
+    "sample_points": 3075264,
+    "tempo_bpm": 184.5703125,
+    "rolloff_freq": 4439.0,
+    "tuning": 0.050000000000000044,
+    "duration": 139.46775510204083,
+    "tonic": "C#",
+    "key_signature": "C# Minor",
+    "z_dist_avg_to_tonic": 1.912600040435791
+}

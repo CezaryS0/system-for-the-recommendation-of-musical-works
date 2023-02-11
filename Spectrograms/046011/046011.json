@@ -1,0 +1,14 @@
+{
+    "id": 11,
+    "filename": "046011.mp3",
+    "title": "Drunk Butterfly at the Insectorium",
+    "samplefreq": 22050,
+    "sample_points": 6489216,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 5071.0,
+    "tuning": -0.06,
+    "duration": 294.2955102040816,
+    "tonic": "C#",
+    "key_signature": "C# Minor",
+    "z_dist_avg_to_tonic": 1.5347000360488892
+}

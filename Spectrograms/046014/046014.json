@@ -1,0 +1,14 @@
+{
+    "id": 14,
+    "filename": "046014.mp3",
+    "title": "You Gotta Lose (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 4470447,
+    "tempo_bpm": 89.10290948275862,
+    "rolloff_freq": 3295.0,
+    "tuning": 0.020000000000000018,
+    "duration": 202.74136054421768,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.9498000144958496
+}

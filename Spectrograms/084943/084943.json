@@ -1,0 +1,14 @@
+{
+    "id": 7,
+    "filename": "084943.mp3",
+    "title": "With A River",
+    "samplefreq": 22050,
+    "sample_points": 6357312,
+    "tempo_bpm": 161.4990234375,
+    "rolloff_freq": 6156.0,
+    "tuning": -0.13,
+    "duration": 288.3134693877551,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 1.9215999841690063
+}

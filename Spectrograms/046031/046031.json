@@ -1,0 +1,14 @@
+{
+    "id": 31,
+    "filename": "046031.mp3",
+    "title": "No-Input Mixer for sPE_0100",
+    "samplefreq": 22050,
+    "sample_points": 16318080,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 4993.0,
+    "tuning": -0.48,
+    "duration": 740.0489795918368,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.958400011062622
+}

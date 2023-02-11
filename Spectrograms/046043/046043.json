@@ -1,0 +1,14 @@
+{
+    "id": 43,
+    "filename": "046043.mp3",
+    "title": "Florence and the Machine",
+    "samplefreq": 22050,
+    "sample_points": 6523776,
+    "tempo_bpm": 103.359375,
+    "rolloff_freq": 6071.0,
+    "tuning": 0.020000000000000018,
+    "duration": 295.86285714285714,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.4187999963760376
+}

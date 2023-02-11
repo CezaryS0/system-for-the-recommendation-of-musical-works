@@ -1,0 +1,14 @@
+{
+    "id": 18,
+    "filename": "030152.mp3",
+    "title": "Walked Out On Me",
+    "samplefreq": 22050,
+    "sample_points": 3800448,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 5313.0,
+    "tuning": 0.07000000000000006,
+    "duration": 172.35591836734693,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.9845000505447388
+}

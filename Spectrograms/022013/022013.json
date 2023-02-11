@@ -1,0 +1,14 @@
+{
+    "id": 7,
+    "filename": "022013.mp3",
+    "title": "Bay Dream (Gunhead Remix)",
+    "samplefreq": 22050,
+    "sample_points": 7790976,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 6980.0,
+    "tuning": 0.030000000000000027,
+    "duration": 353.3322448979592,
+    "tonic": "C#",
+    "key_signature": "C# Major",
+    "z_dist_avg_to_tonic": 1.6658999919891357
+}

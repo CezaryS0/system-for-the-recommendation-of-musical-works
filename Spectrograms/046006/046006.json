@@ -1,0 +1,14 @@
+{
+    "id": 6,
+    "filename": "046006.mp3",
+    "title": "Sonorousness-under-kill",
+    "samplefreq": 22050,
+    "sample_points": 4675968,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 7202.0,
+    "tuning": -0.03999999999999998,
+    "duration": 212.06204081632654,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 2.1426000595092773
+}

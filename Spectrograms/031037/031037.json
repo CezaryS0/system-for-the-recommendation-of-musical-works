@@ -1,0 +1,14 @@
+{
+    "id": 23,
+    "filename": "031037.mp3",
+    "title": "Vivian's Theme",
+    "samplefreq": 22050,
+    "sample_points": 2228544,
+    "tempo_bpm": 69.83741554054055,
+    "rolloff_freq": 7247.0,
+    "tuning": 0.33000000000000007,
+    "duration": 101.06775510204082,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 2.693700075149536
+}

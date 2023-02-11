@@ -1,0 +1,14 @@
+{
+    "id": 86,
+    "filename": "084142.mp3",
+    "title": "Get Away/ Parallel Sunset",
+    "samplefreq": 22050,
+    "sample_points": 4498200,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 3166.0,
+    "tuning": 0.040000000000000036,
+    "duration": 204.0,
+    "tonic": "D",
+    "key_signature": "D Minor",
+    "z_dist_avg_to_tonic": 1.8300000429153442
+}

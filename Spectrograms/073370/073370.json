@@ -1,0 +1,14 @@
+{
+    "id": 75,
+    "filename": "073370.mp3",
+    "title": "Tunnel Vision",
+    "samplefreq": 22050,
+    "sample_points": 4444253,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 5053.0,
+    "tuning": 0.020000000000000018,
+    "duration": 201.55342403628117,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.430999994277954
+}

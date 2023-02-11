@@ -1,0 +1,14 @@
+{
+    "id": 35,
+    "filename": "046035.mp3",
+    "title": "Woman of the Rain",
+    "samplefreq": 22050,
+    "sample_points": 2420352,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 3119.0,
+    "tuning": 0.06000000000000005,
+    "duration": 109.76653061224489,
+    "tonic": "Ab",
+    "key_signature": "Ab Minor",
+    "z_dist_avg_to_tonic": 1.6740000247955322
+}

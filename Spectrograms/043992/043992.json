@@ -1,0 +1,14 @@
+{
+    "id": 47,
+    "filename": "043992.mp3",
+    "title": "Back on my Knees",
+    "samplefreq": 22050,
+    "sample_points": 3547983,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 3037.0,
+    "tuning": -0.24,
+    "duration": 160.90625850340135,
+    "tonic": "Ab",
+    "key_signature": "Ab Major",
+    "z_dist_avg_to_tonic": 2.081199884414673
+}

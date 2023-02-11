@@ -1,0 +1,14 @@
+{
+    "id": 57,
+    "filename": "064462.mp3",
+    "title": "Suspicious Minds",
+    "samplefreq": 22050,
+    "sample_points": 6073875,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4661.0,
+    "tuning": -0.06,
+    "duration": 275.4591836734694,
+    "tonic": "G",
+    "key_signature": "G Major",
+    "z_dist_avg_to_tonic": 1.496999979019165
+}

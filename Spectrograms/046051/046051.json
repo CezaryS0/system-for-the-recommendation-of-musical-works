@@ -1,0 +1,14 @@
+{
+    "id": 51,
+    "filename": "046051.mp3",
+    "title": "Xayt 1103",
+    "samplefreq": 22050,
+    "sample_points": 5221440,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 3814.0,
+    "tuning": 0.17000000000000004,
+    "duration": 236.8,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 2.5804998874664307
+}

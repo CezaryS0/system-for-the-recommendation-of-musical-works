@@ -1,0 +1,14 @@
+{
+    "id": 78,
+    "filename": "073396.mp3",
+    "title": "Gone With the Bathwater",
+    "samplefreq": 22050,
+    "sample_points": 8428016,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 4413.0,
+    "tuning": -0.14,
+    "duration": 382.222947845805,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 2.643699884414673
+}

@@ -1,0 +1,14 @@
+{
+    "id": 48,
+    "filename": "046048.mp3",
+    "title": "Redevolution : A Spirit Haunts This Island Earth",
+    "samplefreq": 22050,
+    "sample_points": 6773184,
+    "tempo_bpm": 92.28515625,
+    "rolloff_freq": 4432.0,
+    "tuning": 0.020000000000000018,
+    "duration": 307.1738775510204,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.8494000434875488
+}

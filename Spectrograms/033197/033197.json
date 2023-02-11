@@ -1,0 +1,14 @@
+{
+    "id": 36,
+    "filename": "033197.mp3",
+    "title": "D_Dd",
+    "samplefreq": 22050,
+    "sample_points": 5615424,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 5192.0,
+    "tuning": -0.02999999999999997,
+    "duration": 254.66775510204081,
+    "tonic": "A",
+    "key_signature": "A Minor",
+    "z_dist_avg_to_tonic": 1.7681000232696533
+}

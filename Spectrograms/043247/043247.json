@@ -1,0 +1,14 @@
+{
+    "id": 43,
+    "filename": "043247.mp3",
+    "title": "La Fabrique du Silence",
+    "samplefreq": 22050,
+    "sample_points": 8570880,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 5508.0,
+    "tuning": 0.020000000000000018,
+    "duration": 388.70204081632653,
+    "tonic": "G",
+    "key_signature": "G Major",
+    "z_dist_avg_to_tonic": 1.6708999872207642
+}

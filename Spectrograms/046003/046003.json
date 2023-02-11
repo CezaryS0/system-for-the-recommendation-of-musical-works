@@ -1,0 +1,14 @@
+{
+    "id": 3,
+    "filename": "046003.mp3",
+    "title": "Bats Echolocation",
+    "samplefreq": 22050,
+    "sample_points": 5525568,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 2776.0,
+    "tuning": 0.010000000000000009,
+    "duration": 250.5926530612245,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.6693999767303467
+}

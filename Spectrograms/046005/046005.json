@@ -1,0 +1,14 @@
+{
+    "id": 5,
+    "filename": "046005.mp3",
+    "title": "Acidplunderjazz",
+    "samplefreq": 22050,
+    "sample_points": 2743807,
+    "tempo_bpm": 99.38401442307692,
+    "rolloff_freq": 7539.0,
+    "tuning": 0.050000000000000044,
+    "duration": 124.43569160997733,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 1.9628000259399414
+}

@@ -1,0 +1,14 @@
+{
+    "id": 52,
+    "filename": "063789.mp3",
+    "title": "Never Stop",
+    "samplefreq": 22050,
+    "sample_points": 2752704,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4998.0,
+    "tuning": -0.07,
+    "duration": 124.83918367346939,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 1.9104000329971313
+}

@@ -1,0 +1,14 @@
+{
+    "id": 69,
+    "filename": "073025.mp3",
+    "title": "08 Promo sur les rasoirs pourris",
+    "samplefreq": 22050,
+    "sample_points": 3864384,
+    "tempo_bpm": 117.45383522727273,
+    "rolloff_freq": 4614.0,
+    "tuning": -0.21000000000000002,
+    "duration": 175.25551020408165,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 2.347599983215332
+}

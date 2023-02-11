@@ -1,0 +1,14 @@
+{
+    "id": 63,
+    "filename": "073011.mp3",
+    "title": "Masterbrain",
+    "samplefreq": 22050,
+    "sample_points": 3897792,
+    "tempo_bpm": 112.34714673913044,
+    "rolloff_freq": 4773.0,
+    "tuning": -0.020000000000000018,
+    "duration": 176.77061224489796,
+    "tonic": "B",
+    "key_signature": "B Minor",
+    "z_dist_avg_to_tonic": 2.4728000164031982
+}

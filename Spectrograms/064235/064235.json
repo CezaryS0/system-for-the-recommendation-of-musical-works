@@ -1,0 +1,14 @@
+{
+    "id": 55,
+    "filename": "064235.mp3",
+    "title": "Rest/Relaxation",
+    "samplefreq": 22050,
+    "sample_points": 2195712,
+    "tempo_bpm": 161.4990234375,
+    "rolloff_freq": 5303.0,
+    "tuning": 0.040000000000000036,
+    "duration": 99.57877551020408,
+    "tonic": "F#",
+    "key_signature": "F# Minor",
+    "z_dist_avg_to_tonic": 2.24780011177063
+}

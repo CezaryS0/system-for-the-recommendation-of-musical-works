@@ -1,0 +1,14 @@
+{
+    "id": 4,
+    "filename": "046004.mp3",
+    "title": "Sub-Concious",
+    "samplefreq": 22050,
+    "sample_points": 9526464,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 3181.0,
+    "tuning": 0.030000000000000027,
+    "duration": 432.0391836734694,
+    "tonic": "F",
+    "key_signature": "F Major",
+    "z_dist_avg_to_tonic": 1.6162999868392944
+}

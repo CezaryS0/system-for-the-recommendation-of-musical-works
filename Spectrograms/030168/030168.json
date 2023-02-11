@@ -1,0 +1,14 @@
+{
+    "id": 19,
+    "filename": "030168.mp3",
+    "title": "Halloween",
+    "samplefreq": 22050,
+    "sample_points": 2972736,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 5483.0,
+    "tuning": -0.15999999999999998,
+    "duration": 134.81795918367348,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 1.8077000379562378
+}

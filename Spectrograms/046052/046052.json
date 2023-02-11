@@ -1,0 +1,14 @@
+{
+    "id": 52,
+    "filename": "046052.mp3",
+    "title": "Soultronic",
+    "samplefreq": 22050,
+    "sample_points": 6659100,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 7695.0,
+    "tuning": -0.28,
+    "duration": 302.0,
+    "tonic": "C#",
+    "key_signature": "C# Major",
+    "z_dist_avg_to_tonic": 1.579699993133545
+}

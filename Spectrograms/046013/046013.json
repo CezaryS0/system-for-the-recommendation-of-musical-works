@@ -1,0 +1,14 @@
+{
+    "id": 13,
+    "filename": "046013.mp3",
+    "title": "I Blame Myself  (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 3869964,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 3482.0,
+    "tuning": 0.030000000000000027,
+    "duration": 175.50857142857143,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 2.087399959564209
+}

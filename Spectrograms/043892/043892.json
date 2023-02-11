@@ -1,0 +1,14 @@
+{
+    "id": 46,
+    "filename": "043892.mp3",
+    "title": "The Line Starts Here",
+    "samplefreq": 22050,
+    "sample_points": 3184128,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 5542.0,
+    "tuning": 0.06000000000000005,
+    "duration": 144.40489795918367,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 1.8179999589920044
+}

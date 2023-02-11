@@ -1,0 +1,14 @@
+{
+    "id": 11,
+    "filename": "088051.mp3",
+    "title": "Mellow Winkles",
+    "samplefreq": 22050,
+    "sample_points": 2371073,
+    "tempo_bpm": 135.99917763157896,
+    "rolloff_freq": 4893.0,
+    "tuning": 0.0,
+    "duration": 107.53165532879818,
+    "tonic": "C",
+    "key_signature": "C Minor",
+    "z_dist_avg_to_tonic": 2.3810999393463135
+}

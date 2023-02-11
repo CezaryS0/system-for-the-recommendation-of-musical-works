@@ -1,0 +1,14 @@
+{
+    "id": 49,
+    "filename": "046049.mp3",
+    "title": "Disk Unit",
+    "samplefreq": 22050,
+    "sample_points": 5510560,
+    "tempo_bpm": 143.5546875,
+    "rolloff_freq": 6836.0,
+    "tuning": 0.29000000000000004,
+    "duration": 249.91201814058957,
+    "tonic": "G",
+    "key_signature": "G Minor",
+    "z_dist_avg_to_tonic": 2.5099000930786133
+}

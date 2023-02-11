@@ -1,0 +1,14 @@
+{
+    "id": 70,
+    "filename": "073061.mp3",
+    "title": "Palomar",
+    "samplefreq": 22050,
+    "sample_points": 8551794,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 4857.0,
+    "tuning": 0.050000000000000044,
+    "duration": 387.83646258503404,
+    "tonic": "F",
+    "key_signature": "F Minor",
+    "z_dist_avg_to_tonic": 1.4986000061035156
+}

@@ -1,0 +1,14 @@
+{
+    "id": 24,
+    "filename": "046024.mp3",
+    "title": "Beggin' Dogs",
+    "samplefreq": 22050,
+    "sample_points": 3534943,
+    "tempo_bpm": 89.10290948275862,
+    "rolloff_freq": 3335.0,
+    "tuning": 0.050000000000000044,
+    "duration": 160.31487528344672,
+    "tonic": "G",
+    "key_signature": "G Major",
+    "z_dist_avg_to_tonic": 2.475100040435791
+}

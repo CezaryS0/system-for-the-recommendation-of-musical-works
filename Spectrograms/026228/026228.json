@@ -1,0 +1,14 @@
+{
+    "id": 10,
+    "filename": "026228.mp3",
+    "title": "Safety Instructions in case of emergency",
+    "samplefreq": 22050,
+    "sample_points": 3417984,
+    "tempo_bpm": 83.35433467741936,
+    "rolloff_freq": 7855.0,
+    "tuning": 0.0,
+    "duration": 155.01061224489797,
+    "tonic": "D",
+    "key_signature": "D Major",
+    "z_dist_avg_to_tonic": 2.41510009765625
+}

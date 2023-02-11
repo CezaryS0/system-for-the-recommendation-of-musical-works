@@ -1,0 +1,14 @@
+{
+    "id": 0,
+    "filename": "046000.mp3",
+    "title": "Excess Raisin",
+    "samplefreq": 22050,
+    "sample_points": 5298048,
+    "tempo_bpm": 151.99908088235293,
+    "rolloff_freq": 5655.0,
+    "tuning": -0.21000000000000002,
+    "duration": 240.27428571428572,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 2.2576000690460205
+}

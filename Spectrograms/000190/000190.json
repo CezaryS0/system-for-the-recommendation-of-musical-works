@@ -1,0 +1,14 @@
+{
+    "id": 0,
+    "filename": "000190.mp3",
+    "title": "Castle Of Stars",
+    "samplefreq": 22050,
+    "sample_points": 5491008,
+    "tempo_bpm": 103.359375,
+    "rolloff_freq": 4588.0,
+    "tuning": 0.010000000000000009,
+    "duration": 249.02530612244897,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.636299967765808
+}

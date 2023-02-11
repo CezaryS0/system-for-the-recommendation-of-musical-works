@@ -1,0 +1,14 @@
+{
+    "id": 16,
+    "filename": "030015.mp3",
+    "title": "Occidente",
+    "samplefreq": 22050,
+    "sample_points": 4628148,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 5565.0,
+    "tuning": 0.010000000000000009,
+    "duration": 209.89333333333335,
+    "tonic": "F",
+    "key_signature": "F Minor",
+    "z_dist_avg_to_tonic": 1.7473000288009644
+}

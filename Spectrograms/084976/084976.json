@@ -1,0 +1,14 @@
+{
+    "id": 8,
+    "filename": "084976.mp3",
+    "title": "You're Dead (from the forthcoming release 'Sweaty')",
+    "samplefreq": 22050,
+    "sample_points": 4148147,
+    "tempo_bpm": 129.19921875,
+    "rolloff_freq": 7317.0,
+    "tuning": -0.03999999999999998,
+    "duration": 188.1245804988662,
+    "tonic": "Bb",
+    "key_signature": "Bb Minor",
+    "z_dist_avg_to_tonic": 1.4635000228881836
+}

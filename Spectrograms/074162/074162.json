@@ -1,0 +1,14 @@
+{
+    "id": 79,
+    "filename": "074162.mp3",
+    "title": "Movies",
+    "samplefreq": 22050,
+    "sample_points": 6665472,
+    "tempo_bpm": 123.046875,
+    "rolloff_freq": 4134.0,
+    "tuning": 0.0,
+    "duration": 302.2889795918367,
+    "tonic": "E",
+    "key_signature": "E Minor",
+    "z_dist_avg_to_tonic": 1.6484999656677246
+}

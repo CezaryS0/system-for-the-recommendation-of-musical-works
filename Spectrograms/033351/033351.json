@@ -1,0 +1,14 @@
+{
+    "id": 38,
+    "filename": "033351.mp3",
+    "title": "111_Mags_chrom\u00e9s_usag\u00e9s",
+    "samplefreq": 22050,
+    "sample_points": 2197504,
+    "tempo_bpm": 99.38401442307692,
+    "rolloff_freq": 6147.0,
+    "tuning": 0.14,
+    "duration": 99.66004535147393,
+    "tonic": "E",
+    "key_signature": "E Major",
+    "z_dist_avg_to_tonic": 1.268399953842163
+}

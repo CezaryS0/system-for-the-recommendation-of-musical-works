@@ -1,0 +1,14 @@
+{
+    "id": 17,
+    "filename": "046017.mp3",
+    "title": "Pine On (Caledonia Lounge, 2011)",
+    "samplefreq": 22050,
+    "sample_points": 4773015,
+    "tempo_bpm": 89.10290948275862,
+    "rolloff_freq": 3520.0,
+    "tuning": -0.03999999999999998,
+    "duration": 216.46326530612245,
+    "tonic": "Ab",
+    "key_signature": "Ab Major",
+    "z_dist_avg_to_tonic": 2.3269999027252197
+}
