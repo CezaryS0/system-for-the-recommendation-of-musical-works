@@ -2,7 +2,7 @@
 <br>
 System for the recommendation of musical works by Cezary Szumerowski
 
-## General overwiev of the project
+## General overview of the project
 
 The purpose of this project was to implemented a recommendation engine for the musical works using the content-based filtering.
 <br><br>
